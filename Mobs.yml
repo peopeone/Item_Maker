@@ -1,0 +1,3512 @@
+# For more information, check out the plugin manual or join us on Discord:
+# http://www.mythicmobs.net
+#
+Test:
+    Type: Zombie
+    Display: '&aThất Điên Bát Đảo'
+    Health: 5000
+    Level: 1
+    ModelEngine: shadowguardian
+    Denizen:
+        on_spawn:
+            elite:
+                rate: 50
+            mutant:
+                rate: 50
+    Options:
+        FollowRange: 10
+        PreventSunburn: true
+        NoDamageTicks: 0
+        Despawn: persistent
+        MovementSpeed: 0.4
+        KnockbackResistance: 1
+        Silent: true
+        AlwaysShowName: false
+        DigOutOfGround: true
+        PreventOtherDrops: true
+    Faction: Human
+    AIGoalSelectors:
+        - clear
+        - meleeattack
+        - randomstroll
+        - gotospawnlocation
+    AITargetSelectors:
+        - clear
+        - players
+    Skills:
+    - state{mid=shadowguardian;s=attack;li=1;lo=1} @self ~onAttack
+#
+Mad_Elf:
+    Type: skeleton
+    Display: '&cElf điên loạn'
+    Health: 500
+    Level: 15
+    Denizen:
+        on_spawn:
+            elite:
+                rate: 100
+            mutant:
+                rate: 100
+        on_death:
+            XP: 25
+            drop_rate: 25
+    Flag:
+        Attribute_Map:
+            main_attack: 1
+        Main_attribute_Map:
+            main_attack:
+                from: 99
+                to: 300
+            poison_attack:
+                from: 50
+                to: 150
+    AIGoalSelectors:
+        - clear
+        - meleeattack
+        - randomstroll
+        - 1 skeletonbowattack
+    AITargetSelectors:
+        - clear
+        - players
+        - attacker
+    Disguise: Skeleton setDynamicName true
+    Options:
+        FollowRange: 15
+        PreventSunburn: true
+        NoDamageTicks: 10
+        NoGravity: false
+        MovementSpeed: 0.4
+        KnockbackResistance: 0.55
+        Silent: true
+        AlwaysShowName: true
+        DigOutOfGround: true
+        PreventOtherDrops: true
+    Modules:
+        ImmunityTable: true
+        ThreatTable: true
+    Equipment:
+        - bow:0
+    Skills:
+        - effect:particles{particle=fireworksSpark;amount=10;hS=0.5;vS=0.4;yoffset=1;speed=0.0001;d=10} @self ~onTimer:10
+        - skill{s=Skills} ~onTimer:160 @RandomThreatTarget
+        - effect:particles{p=blockcrack_152_0;a=50;hS=0.4;vS=0.4;d=10;yoffset=0.5} @target ~onAttack 1
+
+#
+KIEMSILANGTHAN:
+    Type: skeleton
+    Health: 13000
+    Display: '&b&lKiếm sĩ lang than'
+    Level: 41
+    Denizen:
+        on_spawn:
+            elite:
+                rate: 15
+            mutant:
+                rate: 20
+        on_death:
+            XP: 300
+            drop_rate: 25
+    Flag:
+        Attribute_Map:
+            main_attack: 1
+            dodge: 30
+            element_attack_resist: 50
+            critical_chance: 0.4
+            critical_damage: 1       
+        Main_attribute_Map:
+            main_attack:
+                from: 500
+                to: 700
+            ice_attack:
+                from: 100
+                to: 225
+    Options:
+        PreventOtherDrops: true
+        Despawn: false
+        FollowRange: 50
+        KnockbackResistance: 0.15
+        PreventSunburn: true
+        PreventRandomEquipment: true
+        NoDamageTicks: 10
+        MovementSpeed: 0.35
+        AlwaysShowName: true
+        Silent: true
+        DigOutOfGround: true
+    AIGoalSelectors:
+        - clear
+        - meleeattack
+        - randomstroll
+    AITargetSelectors:
+        - clear
+        - players
+        - attacker
+    Modules:
+        ImmunityTable: true
+        ThreatTable: true
+    Equipment:
+    - diamond_sword:0
+    - leather_helmet:0
+    Disguise: skeleton setDynamicName true
+    Skills:
+    - effect:particles{particle=angryVillager;amount=10;hS=0.5;vS=0.4;yoffset=0.6;speed=0.0001;d=10} @self ~onTimer:10
+    - skill{s=kiemsiSkills} ~onTimer:160 @RandomThreatTarget
+    - effect:particles{p=blockcrack_152_0;a=50;hS=0.4;vS=0.4;d=10;yoffset=0.5} @target ~onAttack 1
+
+
+#
+#
+
+Dummy:
+    Type: ZOMBIE
+    ########
+    Display: '&aBù Nhìn'
+    Health: 99999
+    Level: 1
+    Denizen:
+        on_death:
+            XP: 0
+            drop_rate: 0
+        on_spawn:
+            elite:
+                rate: 0
+            mutant:
+                rate: 0
+    Flag:
+        Attribute_Map:
+            main_attack: 1000
+            dodge: 999
+        Main_Attribute_Map:
+            main_attack:
+                from: 99
+                to: 999
+    Options:
+        FollowRange: 10
+        MovementSpeed: 0.3
+        KnockbackResistance: 0.55
+        NoDamageTicks: 1
+    ###########
+        PreventSunburn: true
+        NoGravity: false
+        Silent: true
+        NoAI: true
+        AlwaysShowName: false
+        DigOutOfGround: true
+        PreventOtherDrops: true
+    Equipment:
+        - Carved_Pumpkin Head
+        - leather_chestplate CHEST
+        - leather_leggings LEGS
+        - leather_boots FEET
+    Disguise: armor_stand setShowArms true setRightArm 180,0,-135 setLeftArm 180,0,135 setDynamicName true
+##### Normal
+Fowl:
+    Type: ZOMBIE
+    Display: '&6Gà Con'
+    Health: 10
+    Level: 1
+    Denizen:
+        on_spawn:
+            elite:
+                rate: 15
+            mutant:
+                rate: 15
+        on_death:
+            XP: 5
+            drop_rate: 99
+            Drop:
+                crafting_material:
+                    Fowl_Feather: 55
+    Flag:
+        Main_Attribute_Map:
+            main_attack:
+                from: 1
+                to: 10
+    Disguise: chicken setBaby true setDynamicName true
+    AIGoalSelectors:
+        - clear
+        - meleeattack
+        - randomstroll
+    AITargetSelectors:
+        - clear
+        - attacker
+    Options:
+        FollowRange: 10
+        PreventSunburn: true
+        NoDamageTicks: 1
+        NoGravity: false
+        MovementSpeed: 0.3
+        KnockbackResistance: 0.55
+        Silent: true
+        AlwaysShowName: true
+        DigOutOfGround: true
+        PreventOtherDrops: true
+Blob:
+    Type: Zombie
+    Display: '&6Giọt Nước'
+    Health: 35
+    Level: 2
+    Denizen:
+        on_spawn:
+            elite:
+                rate: 10
+            mutant:
+                rate: 15
+        on_death:
+            XP: 12
+            drop_rate: 25
+    Flag:
+        Attribute_Map:
+            main_attack: 1
+        Main_attribute_Map:
+            main_attack:
+                from: 4
+                to: 15
+    AIGoalSelectors:
+        - clear
+        - meleeattack
+        - randomstroll
+    AITargetSelectors:
+        - clear
+        - attacker
+    Options:
+        FollowRange: 10
+        PreventSunburn: true
+        NoDamageTicks: 1
+        NoGravity: false
+        MovementSpeed: 0.3
+        KnockbackResistance: 0.55
+        Silent: true
+        AlwaysShowName: true
+        DigOutOfGround: true
+        PreventOtherDrops: true
+    Disguise: slime setSize 1 setDynamicName true
+CaveSpider:
+    Type: SPIDER
+    Display: '&cNhện Hang'
+    Health: 100
+    Level: 5
+    Denizen:
+        on_spawn:
+            elite:
+                rate: 5
+            mutant:
+                rate: 10
+        on_death:
+            XP: 20
+            drop_rate: 25
+            Drop:
+                equipment:
+                    Iron_<list[helmet|chestplate|pants|boots].random>: 10
+                    VkSTunique1: 10
+    Flag:
+        Attribute_Map:
+            main_attack: 1
+        Main_attribute_Map:
+            main_attack:
+                from: 10
+                to: 20
+            poison_attack:
+                from: 5
+                to: 15
+    AIGoalSelectors:
+        - clear
+        - meleeattack
+        - randomstroll
+    AITargetSelectors:
+        - clear
+        - players
+        - attacker
+    Options:
+        FollowRange: 10
+        PreventSunburn: true
+        NoDamageTicks: 1
+        NoGravity: false
+        MovementSpeed: 0.3
+        KnockbackResistance: 0.55
+        Silent: true
+        AlwaysShowName: true
+        DigOutOfGround: true
+        PreventOtherDrops: true
+    Disguise: cave_spider setDynamicName true
+CaveFish:
+    Type: COD
+    Display: '&aCá Vượt Vũ Môn'
+    Health: 150
+    Level: 6
+    Denizen:
+        on_spawn:
+            elite:
+                rate: 10
+        on_death:
+            drop_rate: 25
+            XP: 20
+    Flag:
+        Attribute_Map:
+            main_attack: 1
+        Main_attribute_Map:
+            main_attack:
+                from: 10
+                to: 25
+    AIGoalSelectors:
+        - clear
+        - fleeplayers
+        - randomstroll
+    AITargetSelectors:
+        - clear
+    Options:
+        FollowRange: 10
+        PreventSunburn: true
+        NoDamageTicks: 1
+        NoGravity: false
+        MovementSpeed: 0.7
+        KnockbackResistance: 0.55
+        Silent: true
+        AlwaysShowName: true
+        DigOutOfGround: true
+        PreventOtherDrops: true
+    Disguise: cod setDynamicName true
+Worm:
+    Type: Zombie
+    Display: '&cGiun Đất'
+    Health: 105
+    Level: 4
+    Denizen:
+        on_spawn:
+            elite:
+                rate: 10
+            mutant:
+                rate: 15
+        on_death:
+            XP: 25
+            drop_rate: 25
+    Flag:
+        Attribute_Map:
+            main_attack: 1
+        Main_attribute_Map:
+            main_attack:
+                from: 7
+                to: 15
+    AIGoalSelectors:
+        - clear
+        - meleeattack
+        - randomstroll
+    AITargetSelectors:
+        - clear
+        - players
+        - attacker
+    Disguise: silverfish setDynamicName true
+    Options:
+        FollowRange: 10
+        PreventSunburn: true
+        NoDamageTicks: 1
+        NoGravity: false
+        MovementSpeed: 0.4
+        KnockbackResistance: 0.55
+        Silent: true
+        AlwaysShowName: true
+        DigOutOfGround: true
+        PreventOtherDrops: true
+The_Cowy:
+    Type: Zombie
+    Display: '&6Bò Hiếu Động'
+    Health: 130
+    Level: 6
+    Denizen:
+        on_spawn:
+            elite:
+                rate: 5
+            mutant:
+                rate: 15
+        on_death:
+            XP: 33
+            drop_rate: 25
+            Drop:
+                quest_item:
+                    Cowy_Meat: 45
+                equipment:
+                    Hunter_Bow: 10
+                    Sharpness_Sword: 10
+                    VIEENX_Dagger: 10
+                    Beginner_Staff: 10
+    Flag:
+        Attribute_Map:
+            main_attack: 1
+        Main_attribute_Map:
+            main_attack:
+                from: 15
+                to: 25
+            cursed_attack:
+                from: 1
+                to: 2
+    AIGoalSelectors:
+        - clear
+        - meleeattack
+        - randomstroll
+    AITargetSelectors:
+        - clear
+        - attacker
+    Disguise: Cow setDynamicName true
+    Options:
+        FollowRange: 10
+        PreventSunburn: true
+        NoDamageTicks: 1
+        NoGravity: false
+        MovementSpeed: 0.45
+        KnockbackResistance: 0.55
+        Silent: true
+        AlwaysShowName: true
+        DigOutOfGround: true
+        PreventOtherDrops: true
+House_Spider:
+    Type: Spider
+    Display: '&cNhện Nhà'
+    Health: 325
+    Level: 10
+    Denizen:
+        on_spawn:
+            elite:
+                rate: 4
+            mutant:
+                rate: 15
+        on_death:
+            XP: 45
+            drop_rate: 15
+            Elite_Drop:
+                equipment:
+                    Zommommy_Amulet: 15
+                    447d37bb-c12f-4be6-98ef-65f9f9220591: 15
+                    VkSTrare1: 5
+            Drop:
+                equipment:
+                    VkSTunique1: 20
+                crafting_material:
+                    String: 55
+    Flag:
+        Attribute_Map:
+            main_attack: 5
+        Main_attribute_Map:
+            main_attack:
+                from: 25
+                to: 55
+            poison_attack:
+                from: 20
+                to: 35
+    AIGoalSelectors:
+        - clear
+        - meleeattack
+        - randomstroll
+    AITargetSelectors:
+        - clear
+        - players
+        - attacker
+    Options:
+        FollowRange: 10
+        PreventSunburn: true
+        NoDamageTicks: 1
+        NoGravity: false
+        MovementSpeed: 0.45
+        KnockbackResistance: 0.55
+        Silent: true
+        AlwaysShowName: true
+        DigOutOfGround: true
+        PreventOtherDrops: true
+    Disguise: Spider setDynamicName true
+Small_House_Spider:
+    Type: Cave_Spider
+    Display: '&cNhện Nhà Con'
+    Health: 100
+    Level: 8
+    Denizen:
+        on_spawn:
+            elite:
+                rate: 5
+            mutant:
+                rate: 10
+        on_death:
+            XP: 25
+            drop_rate: 5
+            Drop:
+                equipment:
+                    Venomous_Scimitar: 5
+                crafting_material:
+                    String: 35
+    Flag:
+        Attribute_Map:
+            main_attack: 5
+        Main_attribute_Map:
+            poison_attack:
+                from: 10
+                to: 45
+    AIGoalSelectors:
+        - clear
+        - meleeattack
+        - randomstroll
+    AITargetSelectors:
+        - clear
+        - players
+        - attacker
+    Options:
+        FollowRange: 10
+        PreventSunburn: true
+        NoDamageTicks: 1
+        NoGravity: false
+        MovementSpeed: 0.45
+        KnockbackResistance: 0.55
+        Silent: true
+        AlwaysShowName: true
+        DigOutOfGround: true
+        PreventOtherDrops: true
+    Disguise: Cave_Spider setDynamicName true
+Bandit:
+    Type: ZOMBIE
+    Display: '&cCướp'
+    Health: 150
+    Level: 7
+    Denizen:
+        on_spawn:
+            Elite:
+                rate: 5
+            Mutant:
+                rate: 15
+        on_death:
+            XP: 30
+            drop_rate: 20
+            Drop:
+                equipment:
+                    Crystal_Staff: 5
+                    Crystal_Bow: 5
+                    0bbb284e-cb2d-4eb2-8803-f6d4cbe3a4a4: 1
+    Flag:
+        Attribute_Map:
+            main_attack: 1
+        Main_Attribute_Map:
+            main_attack:
+                from: 16
+                to: 55
+    Options:
+        FollowRange: 15
+        PreventSunburn: true
+        NoDamageTicks: 1
+        NoGravity: false
+        MovementSpeed: 0.3
+        KnockbackResistance: 0.1
+        Silent: true
+        AlwaysShowName: false
+        DigOutOfGround: true
+        PreventOtherDrops: true
+    Disguise: Bandit
+    Equipment:
+        - wooden_sword HAND
+        - leather_leggings LEGS
+        - leather_boots FEET
+    AIGoalSelectors:
+        - clear
+        - meleeattack
+        - randomstroll
+        - gotospawnlocation
+    AITargetSelectors:
+        - clear
+        - players
+        - attacker
+Weak_Zombie:
+    Type: ZOMBIE
+    Display: '&cZombie'
+    Health: 220
+    Level: 8
+    Denizen:
+        on_spawn:
+            Elite:
+                rate: 5
+            Mutant:
+                rate: 15
+        on_death:
+            XP: 40
+            drop_rate: 20
+            Elite_Drop: 
+                equipment: 
+                    adcfe14a-e0fa-4d47-9158-3ea686e27489: 15
+            Drop:
+                equipment:
+                    Rusty_Sword: 10
+                    Vitality_Sword: 5
+                crafting_material:
+                    Zombie_Teeth: 55
+    Flag:
+        Main_Attribute_Map:
+            main_attack:
+                from: 10
+                to: 20
+            poison_attack:
+                from: 15
+                to: 25
+    Options:
+        FollowRange: 10
+        PreventSunburn: true
+        NoDamageTicks: 1
+        NoGravity: false
+        MovementSpeed: 0.25
+        KnockbackResistance: 1
+        Silent: true
+        AlwaysShowName: false
+        DigOutOfGround: true
+        PreventOtherDrops: true
+    Disguise: Zombie setDynamicName
+    AIGoalSelectors:
+        - clear
+        - meleeattack
+        - randomstroll
+        - gotospawnlocation
+    AITargetSelectors:
+        - clear
+        - players
+        - attacker
+Weak_Skeleton:
+    Type: ZOMBIE
+    Display: '&cBộ Xương'
+    Health: 200
+    Level: 9
+    Denizen:
+        on_spawn:
+            Elite:
+                rate: 5
+            Mutant:
+                rate: 15
+        on_death:
+            XP: 40
+            drop_rate: 20
+            Elite_Drop:
+                equipment:
+                    1f5c103f-8284-4298-a496-628113d548a9: 15
+            Drop:
+                equipment:
+                    Rusty_Sword: 10
+                    Vitality_Sword: 5
+                crafting_material:
+                    Weak_Bone: 55
+    Flag:
+        Main_Attribute_Map:
+            cursed_attack:
+                from: 35
+                to: 75
+            main_attack:
+                from: 15
+                to: 25
+    Options:
+        FollowRange: 10
+        PreventSunburn: true
+        NoDamageTicks: 1
+        NoGravity: false
+        MovementSpeed: 0.25
+        KnockbackResistance: 0.75
+        Silent: true
+        AlwaysShowName: false
+        DigOutOfGround: true
+        PreventOtherDrops: true
+    Disguise: Skeleton setDynamicName
+    AIGoalSelectors:
+        - clear
+        - meleeattack
+        - randomstroll
+        - gotospawnlocation
+    AITargetSelectors:
+        - clear
+        - players
+        - attacker
+
+Mineral_Muncher:
+    Type: zombie
+    Display: '&cBọ Tìm Khoáng'
+    Health: 120
+    Level: 9
+    Denizen:
+        on_spawn:
+            elite:
+                rate: 5
+            mutant:
+                rate: 10
+        on_death:
+            XP: 50
+            drop_rate: 25
+            Drop:
+                crafting_material:
+                    Mineral_Muncher_Fang: 75
+    Flag:
+        Attribute_Map:
+            main_attack: 5
+            main_attack_resist: 20
+        Main_attribute_Map:
+            main_attack:
+                from: 15
+                to: 45
+    AIGoalSelectors:
+        - clear
+        - meleeattack
+        - randomstroll
+    AITargetSelectors:
+        - clear
+        - players
+        - attacker
+    Disguise: Endermite setDynamicName true
+    Options:
+        FollowRange: 10
+        PreventSunburn: true
+        NoDamageTicks: 1
+        NoGravity: false
+        MovementSpeed: 0.55
+        KnockbackResistance: 0.25
+        Silent: true
+        AlwaysShowName: true
+        DigOutOfGround: true
+        PreventOtherDrops: true
+Dark_Stalker:
+    Type: zombie
+    Display: '&cTruy Quỷ'
+    Health: 350
+    Level: 10
+    Denizen:
+        on_spawn:
+            elite:
+                rate: 5
+            mutant:
+                rate: 35
+        on_death:
+            XP: 80
+            drop_rate: 25
+            Elite_Drop:
+                equipment:
+                    19c90ad0-acfa-4f9d-b688-16897dd11037: 100
+            Drop:
+                equipment:
+                    Dark_Cursed_Helmet: 10
+                crafting_material:
+                    Dark_Heart: 60
+
+    Flag:
+        Attribute_Map:
+            main_attack: 5
+            cursed_attack: 20
+        Main_attribute_Map:
+            main_attack:
+                from: 5
+                to: 15
+            cursed_attack:
+                from: 15
+                to: 35
+    AIGoalSelectors:
+        - clear
+        - meleeattack
+        - randomstroll
+    AITargetSelectors:
+        - clear
+        - players
+        - attacker
+    Disguise: Enderman setDynamicName true
+    Options:
+        FollowRange: 10
+        PreventSunburn: true
+        NoDamageTicks: 3
+        NoGravity: false
+        MovementSpeed: 0.4
+        KnockbackResistance: 0.45
+        Silent: true
+        AlwaysShowName: true
+        DigOutOfGround: true
+        PreventOtherDrops: true
+Dries_Toad:
+    Type: zombie
+    Display: '&6Cóc Khô'
+    Health: 240
+    Level: 13
+    Denizen:
+        on_spawn:
+            elite:
+                rate: 5
+            mutant:
+                rate: 10
+        on_death:
+            XP: 85
+            drop_rate: 25
+            Drop:
+                crafting_material:
+                    Dries_Toad_Leather: 44
+                quest_item:
+                    Toad_Meat:
+                        Dries_Toad_Leather: 33
+    Flag:
+        Attribute_Map:
+            dodge: 50
+        Main_attribute_Map:
+            main_attack:
+                from: 25
+                to: 45
+            poison_attack:
+                from: 15
+                to: 30
+    AIGoalSelectors:
+        - clear
+        - meleeattack
+        - randomstroll
+    AITargetSelectors:
+        - clear
+        - attacker
+    Disguise: Frog setDynamicName true setVariant Warm
+    Options:
+        FollowRange: 10
+        PreventSunburn: true
+        NoDamageTicks: 3
+        NoGravity: false
+        MovementSpeed: 0.3
+        KnockbackResistance: 0.45
+        Silent: true
+        AlwaysShowName: true
+        DigOutOfGround: true
+        PreventOtherDrops: true
+########
+Forest_Fox:
+    Type: zombie
+    Display: '&6Chồn Rừng'
+    Health: 400
+    Level: 16
+    Denizen:
+        on_spawn:
+            elite:
+                rate: 5
+            mutant:
+                rate: 10
+        on_death:
+            XP: 110
+            drop_rate: 25
+            Drop:
+                crafting_material:
+                    Forest_Leather: 40
+    Flag:
+        Attribute_Map:
+            main_attack: 5
+        Main_attribute_Map:
+            main_attack:
+                from: 25
+                to: 95
+    AIGoalSelectors:
+        - clear
+        - meleeattack
+        - randomstroll
+    AITargetSelectors:
+        - clear
+        - attacker
+    Faction: Animal
+    Disguise: FOX setDynamicName true
+    Options:
+        FollowRange: 10
+        PreventSunburn: true
+        NoDamageTicks: 1
+        NoGravity: false
+        MovementSpeed: 0.4
+        KnockbackResistance: 0.45
+        Silent: true
+        AlwaysShowName: true
+        DigOutOfGround: true
+        PreventOtherDrops: true
+Forest_Pig:
+    Type: zombie
+    Display: '&6Lợn Rừng'
+    Health: 560
+    Level: 17
+    Denizen:
+        on_spawn:
+            elite:
+                rate: 5
+            mutant:
+                rate: 10
+        on_death:
+            XP: 130
+            drop_rate: 25
+            Drop:
+                crafting_material:
+                    Forest_Pig_Meat: 45
+                    Forest_Leather: 25
+    Flag:
+        Attribute_Map:
+            main_attack: 5
+        Main_attribute_Map:
+            main_attack:
+                from: 65
+                to: 115
+    AIGoalSelectors:
+        - clear
+        - meleeattack
+        - randomstroll
+    Faction: Animal
+    AITargetSelectors:
+        - clear
+        - attacker
+    Disguise: Hoglin setDynamicName true setBaby
+    Options:
+        FollowRange: 10
+        PreventSunburn: true
+        NoDamageTicks: 1
+        NoGravity: false
+        MovementSpeed: 0.42
+        KnockbackResistance: 0.45
+        Silent: true
+        AlwaysShowName: true
+        DigOutOfGround: true
+        PreventOtherDrops: true
+Forest_Hunter:
+    Type: Skeleton
+    Display: '&6Thợ Săn'
+    Health: 465
+    Level: 18
+    Denizen:
+        on_spawn:
+            elite:
+                rate: 10
+            mutant:
+                rate: 5
+        on_death:
+            XP: 99
+            drop_rate: 25
+            Elite_Drop:
+                equipment: 
+                    ba1ffd86-643a-43a0-bef6-0cbc4a726e9e: 5
+            Drop:
+                crafting_material:
+                    Broken_Bow: 75
+                equipment:
+                    Forest_<list[helmet|chestplate|pants|boots].random>: 30
+    Flag:
+        Attribute_Map:
+            main_attack: 5
+        Main_attribute_Map:
+            main_attack:
+                from: 15
+                to: 20
+            poison_attack:
+                from: 35
+                to: 111
+    AIGoalSelectors:
+        - clear
+        - bowattack
+        - randomstroll
+    AITargetSelectors:
+        - clear
+        - attacker
+        - SpecificFaction Animal
+    Disguise: Forest_Hunter
+    Faction: Human
+    Options:
+        FollowRange: 10
+        PreventSunburn: true
+        NoDamageTicks: 1
+        NoGravity: false
+        MovementSpeed: 0.4
+        KnockbackResistance: 0.15
+        Silent: true
+        AlwaysShowName: true
+        DigOutOfGround: true
+        PreventOtherDrops: true
+Forest_Spirit:
+    Type: ZOMBIE
+    Display: '&aTinh Linh'
+    Health: 560
+    Level: 18
+    Denizen:
+        on_spawn:
+            elite:
+                rate: 5
+            mutant:
+                rate: 10
+        on_death:
+            XP: 140
+            drop_rate: 25
+    Flag:
+        Attribute_Map:
+            main_attack: 5
+        Main_attribute_Map:
+            main_attack:
+                from: 1
+                to: 2
+    AIGoalSelectors:
+        - clear
+        - fleeplayers
+        - randomstroll
+    AITargetSelectors:
+        - clear
+    Disguise: Allay setDynamicName setYModifier 0.5
+    Options:
+        FollowRange: 10
+        PreventSunburn: true
+        NoDamageTicks: 1
+        NoGravity: false
+        MovementSpeed: 0.6
+        KnockbackResistance: 0.15
+        Silent: true
+        AlwaysShowName: true
+        DigOutOfGround: true
+        PreventOtherDrops: true
+###
+Poisoned_Apple:
+    Type: zombie
+    Display: '&6Táo Nhiễm Độc'
+    Health: 555
+    Level: 16
+    Denizen:
+        on_spawn:
+            elite:
+                rate: 5
+            mutant:
+                rate: 10
+        on_death:
+            XP: 100
+            drop_rate: 25
+    Flag:
+        Attribute_Map:
+            main_attack: 5
+        Main_attribute_Map:
+            main_attack:
+                from: 25
+                to: 85
+    AIGoalSelectors:
+        - clear
+        - meleeattack
+        - randomstroll
+    AITargetSelectors:
+        - clear
+        - attacker
+    Disguise: dropped_item setDynamicName true setItemStack lime_dye{CustomModelData:8}
+    Options:
+        FollowRange: 10
+        PreventSunburn: true
+        NoDamageTicks: 1
+        NoGravity: false
+        MovementSpeed: 0.25
+        KnockbackResistance: 0.9
+        Silent: true
+        AlwaysShowName: true
+        DigOutOfGround: true
+        PreventOtherDrops: true
+Suspicious_Bush:
+    Type: Skeleton
+    Display: '&6Bụi Đáng Ngờ'
+    Health: 347
+    Level: 11
+    Denizen:
+        on_spawn:
+            elite:
+                rate: 5
+            mutant:
+                rate: 10
+        on_death:
+            XP: 75
+            drop_rate: 25
+            Drop:
+                equipment:
+                    Erdtree_Greatbow: 25
+    Flag:
+        Attribute_Map:
+            main_attack: 5
+        Main_attribute_Map:
+            main_attack:
+                from: 45
+                to: 100
+            poison_attack:
+                from: 20
+                to: 50
+    AIGoalSelectors:
+        - clear
+        - bowattack
+        - randomstroll
+    AITargetSelectors:
+        - clear
+        - attacker
+    Disguise: Falling_Block setBurning setDynamicName true setBlock Oak_Leaves
+    Options:
+        FollowRange: 10
+        PreventSunburn: true
+        NoDamageTicks: 1
+        NoGravity: false
+        MovementSpeed: 0.35
+        KnockbackResistance: 0.55
+        Silent: true
+        AlwaysShowName: true
+        DigOutOfGround: true
+        PreventOtherDrops: true
+Wild_Dog:
+    Type: ZOMBIE
+    Display: '&6Chó Hoang'
+    Health: 550
+    Level: 14
+    Denizen:
+        on_spawn:
+            elite:
+                rate: 5
+            mutant:
+                rate: 10
+        on_death:
+            XP: 80
+            drop_rate: 25
+            Drop:
+                crafting_material:
+                    Old_Leash: 55
+    Flag:
+        Attribute_Map:
+            main_attack: 5
+        Main_attribute_Map:
+            main_attack:
+                from: 44
+                to: 88
+            poison_attack:
+                from: 11
+                to: 33
+    AIGoalSelectors:
+        - clear
+        - meleeattack
+        - randomstroll
+    AITargetSelectors:
+        - clear
+        - attacker
+    Disguise: Wolf setDynamicName setBaby
+    Options:
+        FollowRange: 15
+        PreventSunburn: true
+        NoDamageTicks: 1
+        NoGravity: false
+        MovementSpeed: 0.35
+        KnockbackResistance: 0.55
+        Silent: true
+        AlwaysShowName: true
+        DigOutOfGround: true
+        PreventOtherDrops: true
+Danger_Adventurer:
+    Type: ZOMBIE
+    Display: '&6Mạo Hiểm Giả Biến Chất'
+    Health: 750
+    Level: 17
+    Denizen:
+        on_spawn:
+            elite:
+                rate: 5
+            mutant:
+                rate: 10
+        on_death:
+            XP: 75
+            drop_rate: 25
+            Drop:
+                crafting_material:
+                    White_Material: 44
+    Flag:
+        Attribute_Map:
+            main_attack: 5
+        Main_attribute_Map:
+            main_attack:
+                from: 90
+                to: 120
+    AIGoalSelectors:
+        - clear
+        - meleeattack
+        - randomstroll
+    AITargetSelectors:
+        - clear
+        - attacker
+    Disguise: Danger_Adventurer
+    Options:
+        FollowRange: 15
+        PreventSunburn: true
+        NoDamageTicks: 1
+        NoGravity: false
+        MovementSpeed: 0.35
+        KnockbackResistance: 0.55
+        Silent: true
+        AlwaysShowName: true
+        DigOutOfGround: true
+        PreventOtherDrops: true
+Small_Bee:
+    Type: Bee
+    Display: '&6Ong Thợ'
+    Health: 310
+    Level: 13
+    Denizen:
+        on_spawn:
+            elite:
+                rate: 5
+            mutant:
+                rate: 10
+        on_death:
+            XP: 55
+            drop_rate: 25
+            Drop:
+                crafting_material:
+                    Bee_Sting: 75
+    Flag:
+        Attribute_Map:
+            main_attack: 5
+        Main_attribute_Map:
+            poison_attack:
+                from: 35
+                to: 76
+    AIGoalSelectors:
+        - clear
+        - meleeattack
+        - randomstroll
+    AITargetSelectors:
+        - clear
+        - attacker
+    Disguise: Bee setDynamicName setBaby
+    Options:
+        FollowRange: 35
+        PreventSunburn: true
+        NoDamageTicks: 1
+        NoGravity: false
+        MovementSpeed: 0.35
+        KnockbackResistance: 0.5
+        Silent: true
+        AlwaysShowName: true
+        DigOutOfGround: true
+        PreventOtherDrops: true
+#######
+Vine_Creeper:
+    Type: Skeleton
+    Display: '&cCreeper Dây Leo'
+    Health: 862
+    Level: 19
+    Denizen:
+        on_spawn:
+            elite:
+                rate: 5
+            mutant:
+                rate: 10
+        on_death:
+            XP: 190
+            drop_rate: 25
+            Drop:
+                crafting_material:
+                    Vine: 75
+                equipment:
+                    DarkWood_Vine<list[Ring|Amulet].random>: 15
+    Flag:
+        Attribute_Map:
+            main_attack: 5
+        Main_attribute_Map:
+            poison_attack:
+                from: 100
+                to: 170
+    AIGoalSelectors:
+        - clear
+        - bowattack
+        - randomstroll
+    AITargetSelectors:
+        - clear
+        - players
+        - attacker
+    Disguise: Creeper setDynamicName setParticlesColor Blue
+    Options:
+        FollowRange: 10
+        PreventSunburn: true
+        NoDamageTicks: 1
+        NoGravity: false
+        MovementSpeed: 0.35
+        KnockbackResistance: 0.55
+        Silent: true
+        AlwaysShowName: true
+        DigOutOfGround: true
+        PreventOtherDrops: true
+#(cung)
+JungleMan:
+    Type: Skeleton
+    Display: '&cNgười Rừng'
+    Health: 1555
+    Level: 25
+    Denizen:
+        on_spawn:
+            elite:
+                rate: 5
+            mutant:
+                rate: 10
+        on_death:
+            XP: 230
+            drop_rate: 25
+            Drop:
+                crafting_material:
+                    Wild_Grass: 75
+                equipment:
+                    DarkWood_Vine<list[Ring|Amulet].random>: 15
+    Flag:
+        Attribute_Map:
+            main_attack: 5
+        Main_attribute_Map:
+            poison_attack:
+                from: 190
+                to: 250
+    AIGoalSelectors:
+        - clear
+        - bowattack
+        - randomstroll
+    AITargetSelectors:
+        - clear
+        - players
+        - attacker
+    Disguise: JungleMan
+    Options:
+        FollowRange: 20
+        PreventSunburn: true
+        NoDamageTicks: 1
+        NoGravity: false
+        MovementSpeed: 0.35
+        KnockbackResistance: 0.55
+        Silent: true
+        AlwaysShowName: true
+        DigOutOfGround: true
+        PreventOtherDrops: true
+#(giáo)
+JungleMan_Melee:
+    Type: Zombie
+    Display: '&cNgười Rừng'
+    Health: 1850
+    Level: 23
+    Denizen:
+        on_spawn:
+            elite:
+                rate: 5
+            mutant:
+                rate: 10
+        on_death:
+            XP: 220
+            drop_rate: 25
+            Drop:
+                crafting_material:
+                    Wild_Grass: 75
+                    Broken_Spear: 25
+                equipment:
+                    DarkWood_Vine<list[Ring|Amulet].random>: 15
+    Flag:
+        Attribute_Map:
+            main_attack: 5
+        Main_attribute_Map:
+            poison_attack:
+                from: 80
+                to: 170
+    Equipment:
+        - trident HAND
+    AIGoalSelectors:
+        - clear
+        - meleeattack
+        - randomstroll
+    AITargetSelectors:
+        - clear
+        - players
+        - attacker
+    Disguise: JungleMan
+    Options:
+        FollowRange: 10
+        PreventSunburn: true
+        NoDamageTicks: 1
+        NoGravity: false
+        MovementSpeed: 0.35
+        KnockbackResistance: 0.55
+        Silent: true
+        AlwaysShowName: true
+        DigOutOfGround: true
+        PreventOtherDrops: true
+Jungle_Pig:
+    Type: Zombie
+    Display: '&6Lợn Rừng Trưởng Thành'
+    Health: 2000
+    Level: 21
+    Denizen:
+        on_spawn:
+            elite:
+                rate: 5
+            mutant:
+                rate: 10
+        on_death:
+            XP: 300
+            drop_rate: 25
+            Drop:
+                crafting_material:
+                    Big_Pig_Meat: 75
+    Flag:
+        Attribute_Map:
+            main_attack: 5
+        Main_attribute_Map:
+            main_attack:
+                from: 100
+                to: 250
+    AIGoalSelectors:
+        - clear
+        - meleeattack
+        - fleeplayers
+        - randomstroll
+    AITargetSelectors:
+        - clear
+        - attacker
+    Disguise: Hoglin setBaby false setDynamicName
+    Options:
+        FollowRange: 10
+        PreventSunburn: true
+        NoDamageTicks: 1
+        NoGravity: false
+        MovementSpeed: 0.45
+        KnockbackResistance: 0.55
+        Silent: true
+        AlwaysShowName: true
+        DigOutOfGround: true
+        PreventOtherDrops: true
+Jungle_Rabbit:
+    Type: Rabbit
+    Display: '&aThỏ Rừng'
+    Health: 900
+    Level: 20
+    Denizen:
+        on_spawn:
+            elite:
+                rate: 0
+            mutant:
+                rate: 0
+        on_death:
+            XP: 400
+            drop_rate: 25
+            Drop:
+                crafting_material:
+                    Rabbit_Leg: 75
+    Flag:
+        Attribute_Map:
+            main_attack_resist: 50
+            dodge: 300
+    AIGoalSelectors:
+        - clear
+        - fleeplayers
+        - randomstroll
+    AITargetSelectors:
+        - clear
+    Disguise: Rabbit setDynamicName
+    Options:
+        FollowRange: 10
+        PreventSunburn: true
+        NoDamageTicks: 1
+        NoGravity: false
+        MovementSpeed: 0.55
+        KnockbackResistance: 0.55
+        Silent: true
+        AlwaysShowName: true
+        DigOutOfGround: true
+        PreventOtherDrops: true
+#######
+Bandit_Thug:
+    Type: zombie
+    Display: '&cCướp Du Côn'
+    Health: 900
+    Level: 19
+    Denizen:
+        on_spawn:
+            elite:
+                rate: 5
+            mutant:
+                rate: 10
+        on_death:
+            XP: 135
+            drop_rate: 25
+            Drop:
+                equipment:
+                    Bandit_Thug_Knife: 35
+    Flag:
+        Attribute_Map:
+            dodge: 25
+        Main_attribute_Map:
+            main_attack:
+                from: 25
+                to: 195
+    AIGoalSelectors:
+        - clear
+        - meleeattack
+        - randomstroll
+    AITargetSelectors:
+        - clear
+        - players
+        - attacker
+    Disguise: Bandit_Thug
+    Equipment:
+        - Bandit_Thug_Knife Hand
+        - Bandit_Thug_Knife OffHand
+    Options:
+        FollowRange: 10
+        PreventSunburn: true
+        NoDamageTicks: 3
+        NoGravity: false
+        MovementSpeed: 0.35
+        KnockbackResistance: 0.15
+        Silent: true
+        AlwaysShowName: true
+        DigOutOfGround: true
+        PreventOtherDrops: true
+Wild_Cat:
+    Type: zombie
+    Display: '&cMèo Hoang'
+    Health: 570
+    Level: 16
+    Equipment:
+        - iron_helmet HEAD
+        - iron_chestplate CHEST
+        - iron_leggings LEGS
+        - iron_boots FEET
+    Denizen:
+        on_spawn:
+            elite:
+                rate: 5
+            mutant:
+                rate: 10
+        on_death:
+            XP: 85
+            drop_rate: 25
+    Flag:
+        Attribute_Map:
+            dodge: 40
+        Main_attribute_Map:
+            main_attack:
+                from: 1
+                to: 55
+    AIGoalSelectors:
+        - clear
+        - meleeattack
+        - randomstroll
+    AITargetSelectors:
+        - clear
+        - players
+        - attacker
+    Disguise: Cat setDynamicName
+    Options:
+        FollowRange: 10
+        PreventSunburn: true
+        NoDamageTicks: 3
+        NoGravity: false
+        MovementSpeed: 0.35
+        KnockbackResistance: 0.15
+        Silent: true
+        AlwaysShowName: true
+        DigOutOfGround: true
+        PreventOtherDrops: true
+Zommummy:
+    Type: zombie
+    Display: '&cThi Quỷ'
+    Health: 370
+    Level: 11
+    Denizen:
+        on_spawn:
+            elite:
+                rate: 5
+            mutant:
+                rate: 10
+        on_death:
+            XP: 190
+            drop_rate: 25
+            Drop:
+                crafting_material:
+                    Zommummy_Eye: 44
+                equipment:
+                    Zommommy_Amulet: 35
+    Flag:
+        Attribute_Map:
+            main_attack_resist: 20
+        Main_attribute_Map:
+            poison_attack:
+                from: 15
+                to: 77
+            main_attack:
+                from: 15
+                to: 77
+    AIGoalSelectors:
+        - clear
+        - meleeattack
+        - randomstroll
+    AITargetSelectors:
+        - clear
+        - players
+        - attacker
+    Disguise: ZOMBIE setDynamicName
+    Options:
+        FollowRange: 10
+        PreventSunburn: true
+        NoDamageTicks: 3
+        NoGravity: false
+        MovementSpeed: 0.3
+        KnockbackResistance: 0.15
+        Silent: true
+        AlwaysShowName: true
+        DigOutOfGround: true
+        PreventOtherDrops: true
+Raised_Orc:
+    Type: zombie
+    Display: '&cOrc Nổi Loạn'
+    Health: 1100
+    Level: 18
+    Denizen:
+        on_spawn:
+            elite:
+                rate: 5
+            mutant:
+                rate: 15
+        on_death:
+            XP: 177
+            drop_rate: 25
+            Drop:
+                crafting_material:
+                    Orc_Ear: 75
+    Flag:
+        Attribute_Map:
+            main_attack_resist: 20
+        Main_attribute_Map:
+            poison_attack:
+                from: 25
+                to: 170
+    AIGoalSelectors:
+        - clear
+        - meleeattack
+        - randomstroll
+    AITargetSelectors:
+        - clear
+        - players
+        - attacker
+    Equipment:
+        - Iron_Axe Hand
+        - Spruce_Wood Offhand
+        - Leather_Chestplate CHEST
+        - Leather_Leggings LEGS
+    Disguise: Player Orc setDynamicName
+    Options:
+        FollowRange: 15
+        PreventSunburn: true
+        NoDamageTicks: 3
+        NoGravity: false
+        MovementSpeed: 0.3
+        KnockbackResistance: 0.15
+        Silent: true
+        AlwaysShowName: true
+        DigOutOfGround: true
+        PreventOtherDrops: true
+GrassHopper:
+    Type: ZOMBIE
+    Display: '&cChâu Chấu'
+    Health: 1300
+    Level: 22
+    Denizen:
+        on_spawn:
+            elite:
+                rate: 5
+            mutant:
+                rate: 10
+        on_death:
+            XP: 99
+            drop_rate: 25
+            Drop:
+                crafting_material:
+                    GrassHopper: 75
+    Flag:
+        Attribute_Map:
+            main_attack_resist: 30
+            dodge: 60
+        Main_attribute_Map:
+            poison_attack:
+                from: 110
+                to: 140
+    AIGoalSelectors:
+        - clear
+        - meleeattack
+        - randomstroll
+    AITargetSelectors:
+        - clear
+        - players
+        - attacker
+    Equipment:
+        - Iron_Axe Hand
+        - Spruce_Wood Offhand
+        - Leather_Chestplate CHEST
+        - Leather_Leggings LEGS
+    Disguise: Axolotl setDynamicName setBaby setVariant WILD
+    Options:
+        FollowRange: 15
+        PreventSunburn: true
+        NoDamageTicks: 3
+        NoGravity: false
+        MovementSpeed: 0.3
+        KnockbackResistance: 0.15
+        Silent: true
+        AlwaysShowName: true
+        DigOutOfGround: true
+        PreventOtherDrops: true
+Moon_Addicter:
+    Type: ZOMBIE
+    Display: '&cCuồng Nguyệt Giả'
+    Health: 4500
+    Level: 32
+    Denizen:
+        on_spawn:
+            elite:
+                rate: 5
+            mutant:
+                rate: 10
+        on_death:
+            XP: 300
+            drop_rate: 25
+            Drop:
+                equipment:
+                    Moon_Addicter_Amulet: 0.15
+    Flag:
+        Attribute_Map:
+            main_attack_resist: 20
+        Main_attribute_Map:
+            poison_attack:
+                from: 320
+                to: 500
+    AIGoalSelectors:
+        - clear
+        - meleeattack
+        - randomstroll
+    AITargetSelectors:
+        - clear
+        - players
+        - attacker
+    Disguise: Moon_Addicter
+    Options:
+        FollowRange: 20
+        PreventSunburn: true
+        NoDamageTicks: 3
+        NoGravity: false
+        MovementSpeed: 0.3
+        KnockbackResistance: 0.15
+        Silent: true
+        AlwaysShowName: true
+        DigOutOfGround: true
+        PreventOtherDrops: true
+Moon_Zombie:
+    Type: ZOMBIE
+    Display: '&6Rối Nguyệt Tộc'
+    Health: 3499
+    Level: 28
+    Denizen:
+        on_spawn:
+            elite:
+                rate: 5
+            mutant:
+                rate: 10
+        on_death:
+            XP: 250
+            drop_rate: 25
+            Drop:
+                equipment:
+                    Moon_Addicter_Amulet: 0.15
+    Flag:
+        Attribute_Map:
+            main_attack_resist: 20
+        Main_attribute_Map:
+            poison_attack:
+                from: 300
+                to: 444
+    AIGoalSelectors:
+        - clear
+        - meleeattack
+        - randomstroll
+    AITargetSelectors:
+        - clear
+        - attacker
+    Disguise: Moon_Zombie
+    Options:
+        FollowRange: 20
+        PreventSunburn: true
+        NoDamageTicks: 3
+        NoGravity: false
+        MovementSpeed: 0.32
+        KnockbackResistance: 0.15
+        Silent: true
+        AlwaysShowName: true
+        DigOutOfGround: true
+        PreventOtherDrops: true
+Husker:
+    Type: ZOMBIE
+    Display: '&cQuái Vật Hung Tàn'
+    Health: 752
+    Level: 15
+    Denizen:
+        on_spawn:
+            elite:
+                rate: 5
+            mutant:
+                rate: 10
+        on_death:
+            XP: 135
+            drop_rate: 25
+            Drop:
+                equipment:
+                    Husker_boots: 25
+    Flag:
+        Attribute_Map:
+            main_attack_resist: 20
+        Main_attribute_Map:
+            poison_attack:
+                from: 50
+                to: 100
+    Equipment:
+        - iron_hoe HAND
+        - Golden_Boots FEET
+    AIGoalSelectors:
+        - clear
+        - meleeattack
+        - randomstroll
+    AITargetSelectors:
+        - clear
+        - players
+        - attacker
+    Disguise: Husk setDynamicName
+    Options:
+        FollowRange: 15
+        PreventSunburn: true
+        NoDamageTicks: 3
+        NoGravity: false
+        MovementSpeed: 0.3
+        KnockbackResistance: 0.15
+        Silent: true
+        AlwaysShowName: true
+        DigOutOfGround: true
+        PreventOtherDrops: true
+Weak_Witch:
+    Type: ZOMBIE
+    Display: '&6Phù Thủy Tập Sự'
+    Health: 444
+    Level: 17
+    Denizen:
+        on_spawn:
+            elite:
+                rate: 5
+            mutant:
+                rate: 10
+        on_death:
+            XP: 120
+            drop_rate: 25
+            Drop:
+                equipment:
+                    Witch_Sword: 15
+                crafting_material:
+                    Old_Book: 15
+    Flag:
+        Attribute_Map:
+            main_attack_resist: 20
+        Main_attribute_Map:
+            poison_attack:
+                from: 15
+                to: 40
+            fire_attack:
+                from: 15
+                to: 40
+            ice_attack:
+                from: 15
+                to: 40
+            thunder_attack:
+                from: 15
+                to: 40
+    AIGoalSelectors:
+        - clear
+        - meleeattack
+        - randomstroll
+    AITargetSelectors:
+        - clear
+        - attacker
+    Disguise: Witch setDynamicName
+    Options:
+        FollowRange: 15
+        PreventSunburn: true
+        NoDamageTicks: 3
+        NoGravity: false
+        MovementSpeed: 0.34
+        KnockbackResistance: 0.15
+        Silent: true
+        AlwaysShowName: true
+        DigOutOfGround: true
+        PreventOtherDrops: true
+Combat_Witch:
+    Type: ZOMBIE
+    Display: '&cPhù Thủy Hiếu Chiến'
+    Health: 1500
+    Level: 23
+    Denizen:
+        on_spawn:
+            elite:
+                rate: 5
+            mutant:
+                rate: 10
+        on_death:
+            XP: 170
+            drop_rate: 25
+            Drop:
+                equipment:
+                    Witch_Sword: 15
+                crafting_material:
+                    Old_Book: 20
+    Flag:
+        Attribute_Map:
+            main_attack_resist: 20
+        Main_attribute_Map:
+            poison_attack:
+                from: 50
+                to: 80
+            fire_attack:
+                from: 50
+                to: 80
+            ice_attack:
+                from: 50
+                to: 80
+            thunder_attack:
+                from: 50
+                to: 80
+    AIGoalSelectors:
+        - clear
+        - meleeattack
+        - randomstroll
+    AITargetSelectors:
+        - clear
+        - players
+        - attacker
+    Disguise: Witch setDynamicName
+    Options:
+        FollowRange: 15
+        PreventSunburn: true
+        NoDamageTicks: 3
+        NoGravity: false
+        MovementSpeed: 0.35
+        KnockbackResistance: 0.15
+        Silent: true
+        AlwaysShowName: true
+        DigOutOfGround: true
+        PreventOtherDrops: true
+High_Witch:
+    Type: ZOMBIE
+    Display: '&6Phù Thủy Cấp Cao'
+    Health: 4000
+    Level: 26
+    Denizen:
+        on_spawn:
+            elite:
+                rate: 5
+            mutant:
+                rate: 10
+        on_death:
+            XP: 180
+            drop_rate: 25
+            Drop:
+                equipment:
+                    Legend_Witch_Sword: 5
+                    Witch_Sword: 15
+                crafting_material:
+                    Old_Book: 20
+    Flag:
+        Attribute_Map:
+            main_attack_resist: 50
+        Main_attribute_Map:
+            water_attack:
+                from: 55
+                to: 251
+            thunder_attack:
+                from: 55
+                to: 251
+            ice_attack:
+                from: 55
+                to: 251
+            poison_attack:
+                from: 55
+                to: 251
+            fire_attack:
+                from: 55
+                to: 251
+    AIGoalSelectors:
+        - clear
+        - meleeattack
+        - randomstroll
+    AITargetSelectors:
+        - clear
+        - attacker
+    Disguise: Witch setDynamicName
+    Options:
+        FollowRange: 15
+        PreventSunburn: true
+        NoDamageTicks: 3
+        NoGravity: false
+        MovementSpeed: 0.3
+        KnockbackResistance: 0.15
+        Silent: true
+        AlwaysShowName: true
+        DigOutOfGround: true
+        PreventOtherDrops: true
+#######
+Fat_Holothurian:
+    Type: ZOMBIE
+    Display: '&6Hải Sâm Béo Ngậy'
+    Health: 4000
+    Level: 34
+    Denizen:
+        on_spawn:
+            elite:
+                rate: 7
+            mutant:
+                rate: 15
+        on_death:
+            XP: 275
+            drop_rate: 16
+    Flag:
+        Attribute_Map:
+            main_attack: 120
+            main_attack_resist: 30
+        Main_attribute_Map:
+            main_attack:
+                from: 150
+                to: 260
+    AIGoalSelectors:
+        - clear
+        - meleeattack
+        - randomstroll
+    AITargetSelectors:
+        - clear
+        - attacker
+    Disguise: Endermite setDynamicName
+    Options:
+        FollowRange: 10
+        PreventSunburn: true
+        NoDamageTicks: 1
+        NoGravity: false
+        MovementSpeed: 0.35
+        KnockbackResistance: 0.55
+        Silent: true
+        AlwaysShowName: true
+        DigOutOfGround: true
+        PreventOtherDrops: true
+Sea_Pufferfish:
+    Type: ZOMBIE
+    Display: '&6Cá Nóc Biển'
+    Health: 2200
+    Level: 31
+    Denizen:
+        on_spawn:
+            elite:
+                rate: 7
+            mutant:
+                rate: 15
+        on_death:
+            XP: 255
+            drop_rate: 16
+    Flag:
+        Attribute_Map:
+            main_attack: 120
+        Main_attribute_Map:
+            main_attack:
+                from: 150
+                to: 560
+            poison_attack:
+                from: 15
+                to: 60
+    AIGoalSelectors:
+        - clear
+        - meleeattack
+        - randomstroll
+    AITargetSelectors:
+        - clear
+        - attacker
+    Disguise: Pufferfish setPuffstate 1 setDynamicName
+    Options:
+        FollowRange: 10
+        PreventSunburn: true
+        NoDamageTicks: 1
+        NoGravity: false
+        MovementSpeed: 0.35
+        KnockbackResistance: 0.55
+        Silent: true
+        AlwaysShowName: true
+        DigOutOfGround: true
+        PreventOtherDrops: true
+Big_Sea_Pufferfish:
+    Type: ZOMBIE
+    Display: '&6Cá Nóc Biển Lớn'
+    Health: 5555
+    Level: 31
+    Denizen:
+        on_spawn:
+            elite:
+                rate: 7
+            mutant:
+                rate: 15
+        on_death:
+            XP: 300
+            drop_rate: 16
+    Flag:
+        Attribute_Map:
+            ice_attack_resist: 60
+            poison_attack_resist: 60
+        Main_attribute_Map:
+            main_attack:
+                from: 295
+                to: 580
+            poison_attack:
+                from: 55
+                to: 100
+    AIGoalSelectors:
+        - clear
+        - meleeattack
+        - randomstroll
+    AITargetSelectors:
+        - clear
+        - attacker
+    Disguise: Pufferfish setPuffstate 3 setDynamicName
+    Options:
+        FollowRange: 10
+        PreventSunburn: true
+        NoDamageTicks: 1
+        NoGravity: false
+        MovementSpeed: 0.35
+        KnockbackResistance: 0.55
+        Silent: true
+        AlwaysShowName: true
+        DigOutOfGround: true
+        PreventOtherDrops: true
+Bad_Villager:
+    Type: ZOMBIE
+    Display: '&cDân Làng Xấu Xa'
+    Health: 3500
+    Level: 34
+    Denizen:
+        on_spawn:
+            elite:
+                rate: 5
+            mutant:
+                rate: 15
+        on_death:
+            XP: 275
+            drop_rate: 25
+            Drop:
+                crafting_material:
+                    Bad_Attitude: 25
+    Flag:
+        Attribute_Map:
+            accurate: 1200
+            main_attack: 120
+        Main_attribute_Map:
+            main_attack:
+                from: 220
+                to: 300
+    AIGoalSelectors:
+        - clear
+        - meleeattack
+        - randomstroll
+    AITargetSelectors:
+        - clear
+        - players
+        - attacker
+    Equipment:
+        - Butcher_Knife HAND
+    Disguise: Villager setDynamicName setProfession Butcher
+    Options:
+        FollowRange: 10
+        PreventSunburn: true
+        NoDamageTicks: 1
+        NoGravity: false
+        MovementSpeed: 0.35
+        KnockbackResistance: 0.55
+        Silent: true
+        AlwaysShowName: true
+        DigOutOfGround: true
+        PreventOtherDrops: true
+#####
+### Graveyard
+Graveyard_Guard:
+    Type: Zombie
+    Display: '&aBảo Vệ Mộ'
+    Health: 5500
+    Level: 35
+    Denizen:
+        on_spawn:
+            elite:
+                rate: 5
+            mutant:
+                rate: 10
+        on_death:
+            XP: 388
+            drop_rate: 25
+            Drop:
+                equipment:
+                    Graveyard_Guard_Shield: 10
+    Flag:
+        Attribute_Map:
+            main_attack: 1
+        Main_Attribute_Map:
+            main_attack:
+                from: 200
+                to: 555
+    Equipment:
+        - Iron_Sword Hand
+        - Potion Offhand
+    AIGoalSelectors:
+        - clear
+        - meleeattack
+        - randomstroll
+    AITargetSelectors:
+        - clear
+        - OtherFactionMonsters
+        - attacker
+    Faction: Human
+    Options:
+        FollowRange: 10
+        PreventSunburn: true
+        NoDamageTicks: 1
+        MovementSpeed: 0.35
+        KnockbackResistance: 1
+        Silent: true
+        AlwaysShowName: false
+        DigOutOfGround: true
+        PreventOtherDrops: true
+    Disguise: Graveyard_Guard
+Grave_Thief:
+    Type: Zombie
+    Display: '&6Kẻ Trộm Mộ'
+    Health: 5500
+    Level: 35
+    Denizen:
+        on_spawn:
+            elite:
+                rate: 5
+            mutant:
+                rate: 10
+        on_death:
+            XP: 388
+            drop_rate: 25
+            Drop:
+                equipment:
+                    Ghost_bracelet: 10
+                    Gleaming_Bow: 10
+    Flag:
+        Attribute_Map:
+            main_attack: 1
+        Main_Attribute_Map:
+            main_attack:
+                from: 255
+                to: 500
+    AIGoalSelectors:
+        - clear
+        - meleeattack
+        - randomstroll
+    Faction: Hostile
+    AITargetSelectors:
+        - clear
+        - attacker
+        - OtherFactionMonsters
+    Options:
+        FollowRange: 10
+        PreventSunburn: true
+        NoDamageTicks: 1
+        MovementSpeed: 0.35
+        KnockbackResistance: 1
+        Silent: true
+        AlwaysShowName: false
+        DigOutOfGround: true
+        PreventOtherDrops: true
+    Disguise: Grave_Thief
+Weak_Ghost:
+    Type: Skeleton
+    Display: '&cTiểu Ám Linh'
+    Health: 3177
+    Level: 33
+    Denizen:
+        on_spawn:
+            elite:
+                rate: 5
+            mutant:
+                rate: 10
+        on_death:
+            XP: 388
+            drop_rate: 25
+            Drop:
+                equipment:
+                    Ghost_bracelet: 10
+                    Gleaming_Bow: 10
+    Flag:
+        Attribute_Map:
+            main_attack: 1
+        Main_Attribute_Map:
+            main_attack:
+                from: 340
+                to: 440
+    Faction: Hostile
+    AIGoalSelectors:
+        - clear
+        - bowattack
+        - randomstroll
+    AITargetSelectors:
+        - clear
+        - players
+        - OtherFactionMonsters
+    Options:
+        FollowRange: 10
+        PreventSunburn: true
+        NoDamageTicks: 1
+        MovementSpeed: 0.45
+        KnockbackResistance: 1
+        Silent: true
+        AlwaysShowName: false
+        DigOutOfGround: true
+        PreventOtherDrops: true
+    Disguise: Allay setDynamicName
+Wild_Horse:
+    Type: Zombie
+    Display: '&cNgựa Hoang'
+    Health: 1300
+    Level: 20
+    Denizen:
+        on_spawn:
+            elite:
+                rate: 5
+            mutant:
+                rate: 10
+        on_death:
+            XP: 222
+    Flag:
+        Attribute_Map:
+            dodge: 100
+            accurate: 200
+        Main_Attribute_Map:
+            main_attack:
+                from: 50
+                to: 100
+    Options:
+        FollowRange: 10
+        PreventSunburn: true
+        NoDamageTicks: 0
+        MovementSpeed: 0.4
+        KnockbackResistance: 1
+        Silent: true
+        AlwaysShowName: false
+        DigOutOfGround: true
+        PreventOtherDrops: true
+    Faction: Hostile
+    AIGoalSelectors:
+        - clear
+        - meleeattack
+        - randomstroll
+        - gotospawnlocation
+    AITargetSelectors:
+        - clear
+        - players
+        - attacker
+    Disguise: Horse setDynamicName
+#####
+### Nether_Castle
+Skeleton_Knight:
+    Type: Zombie
+    Display: '&cChiến Binh Xương'
+    Health: 2500
+    Level: 22
+    Denizen:
+        on_spawn:
+            elite:
+                rate: 5
+        on_death:
+            XP: 166
+            drop_rate: 25
+            Drop:
+                crafting_material:
+                    hard_bone: 50
+                equipment:
+                    Cursed_Skeleton_Blade: 10
+    Flag:
+        Attribute_Map:
+            main_attack: 1
+        Main_Attribute_Map:
+            main_attack:
+                from: 150
+                to: 300
+    Equipment:
+        - iron_helmet HEAD
+        - iron_chestplate CHEST
+        - iron_leggings LEGS
+        - iron_boots FEET
+        - Iron_Sword HAND
+    AIGoalSelectors:
+        - clear
+        - meleeattack
+        - randomstroll
+    AITargetSelectors:
+        - clear
+        - players
+        - attacker
+    Options:
+        FollowRange: 10
+        PreventSunburn: true
+        NoDamageTicks: 1
+        MovementSpeed: 0.35
+        KnockbackResistance: 1
+        Silent: true
+        AlwaysShowName: false
+        DigOutOfGround: true
+        PreventOtherDrops: true
+    Disguise: skeleton setDynamicName true
+Skeleton_Archer:
+    Type: SKELETON
+    Display: '&cCung Thủ Xương'
+    Health: 2000
+    Level: 24
+    Denizen:
+        on_spawn:
+            elite:
+                rate: 5
+            mutant:
+                rate: 10
+        on_death:
+            XP: 188
+            drop_rate: 25
+            Drop:
+                crafting_material:
+                    hard_bone: 50
+                equipment:
+                    Cursed_Skeleton_Bow: 10
+    Equipment:
+        - leather_helmet HEAD
+        - leather_chestplate CHEST
+        - leather_leggings LEGS
+        - leather_boots FEET
+        - Bow HAND
+    Flag:
+        Attribute_Map:
+            main_attack: 1
+        Main_Attribute_Map:
+            main_attack:
+                from: 200
+                to: 400
+    AIGoalSelectors:
+        - clear
+        - bowattack
+        - randomstroll
+    AITargetSelectors:
+        - clear
+        - players
+        - attacker
+    Options:
+        FollowRange: 20
+        PreventSunburn: true
+        NoDamageTicks: 1
+        MovementSpeed: 0.35
+        KnockbackResistance: 1
+        Silent: true
+        AlwaysShowName: false
+        DigOutOfGround: true
+        PreventOtherDrops: true
+    Disguise: skeleton setDynamicName true
+Zombie_Peasant:
+    Type: Zombie
+    Display: '&aKẻ Bị Nguyền'
+    Health: 2200
+    Level: 20
+    Denizen:
+        on_spawn:
+            elite:
+                rate: 0
+            mutant:
+                rate: 10
+        on_death:
+            XP: 166
+            drop_rate: 25
+            Drop:
+                crafting_material:
+                    hard_bone: 25
+                    rotten_meat: 25
+    Flag:
+        Attribute_Map:
+            main_attack: 1
+        Main_Attribute_Map:
+            main_attack:
+                from: 40
+                to: 450
+            cursed_attack:
+                from: 30
+                to: 100
+    AIGoalSelectors:
+        - clear
+        - meleeattack
+        - randomstroll
+    AITargetSelectors:
+        - clear
+        - players
+        - attacker
+    Options:
+        FollowRange: 10
+        PreventSunburn: true
+        NoDamageTicks: 1
+        MovementSpeed: 0.35
+        KnockbackResistance: 1
+        Silent: true
+        AlwaysShowName: false
+        DigOutOfGround: true
+        PreventOtherDrops: true
+    Disguise: zombie setDynamicName true
+Ghost_Servant:
+    Type: Zombie
+    Display: '&cHầu Gái Xa Ngã'
+    Health: 4500
+    Level: 28
+    Denizen:
+        on_spawn:
+            elite:
+                rate: 5
+            mutant:
+                rate: 10
+        on_death:
+            XP: 266
+            drop_rate: 25
+            Drop:
+                crafting_material:
+                    Ectoplasm: 30
+                    Ghostly_Candelabra: 30
+                    hard_bone: 50
+                    rotten_meat: 50
+
+    Flag:
+        Attribute_Map:
+            main_attack: 1
+        Main_Attribute_Map:
+            main_attack:
+                from: 40
+                to: 499
+    AIGoalSelectors:
+        - clear
+        - meleeattack
+        - randomstroll
+    AITargetSelectors:
+        - clear
+        - players
+        - attacker
+    Options:
+        FollowRange: 10
+        PreventSunburn: true
+        NoDamageTicks: 1
+        MovementSpeed: 0.35
+        KnockbackResistance: 1
+        Silent: true
+        AlwaysShowName: false
+        DigOutOfGround: true
+        PreventOtherDrops: true
+    Disguise: player aa setDynamicName true
+Wraith:
+    Type: vex
+    Display: '&6Ma Điểu'
+    Health: 500
+    Level: 27
+    Denizen:
+        must_on_ground: false
+        on_spawn:
+            elite:
+                rate: 5
+            mutant:
+                rate: 10
+        on_death:
+            XP: 155
+            Drop:
+                crafting_material:
+                    Wraith_Essence: 30
+                equipment:
+                    Leather_<list[helmet|chestplate|pants|boots].random>: 10
+                    Wraith_Cloak: 5
+    Flag:
+        Attribute_Map:
+            main_attack: 1
+            main_attack_resist: 50
+        Main_Attribute_Map:
+            main_attack:
+                from: 75
+                to: 650
+    Options:
+        FollowRange: 25
+        PreventSunburn: true
+        NoDamageTicks: 1
+        MovementSpeed: 0.66
+        KnockbackResistance: 1
+        Silent: true
+        AlwaysShowName: false
+        DigOutOfGround: true
+        PreventOtherDrops: true
+    Disguise: phantom setDynamicName true
+Controlled_Adventurer:
+    Type: ZOMBIE
+    Display: '&cMạo Hiểm Giả Bị Điều Khiển'
+    Health: 3000
+    Level: 26
+    Denizen:
+        must_on_ground: false
+        on_spawn:
+            elite:
+                rate: 5
+            mutant:
+                rate: 10
+        on_death:
+            XP: 200
+            drop_rate: 25
+    Flag:
+        Attribute_Map:
+            accurate: 1000
+        Main_Attribute_Map:
+            cursed_attack:
+                from: 240
+                to: 500
+    Equipment:
+        - leather_helmet HEAD
+        - leather_boots FEET
+        - iron_sword HAND
+    AIGoalSelectors:
+        - clear
+        - meleeattack
+        - randomstroll
+    AITargetSelectors:
+        - clear
+        - players
+        - attacker
+    Options:
+        FollowRange: 20
+        PreventSunburn: true
+        NoDamageTicks: 1
+        MovementSpeed: 0.33
+        KnockbackResistance: 1
+        Silent: true
+        AlwaysShowName: false
+        DigOutOfGround: true
+        PreventOtherDrops: true
+    Disguise: Controlled_Adventurer
+##MiniBoss
+The_Porky:
+    Type: Zombie
+    Display: '&cMa Heo'
+    Health: 1500
+    Level: 10
+    Denizen:
+        on_spawn:
+            elite:
+                rate: 10
+        on_death:
+            XP: 600
+            drop_rate: 100
+            Drop:
+                equipment:
+                    Porky_Amulet: 15
+    Flag:
+        Attribute_Map:
+            main_attack: 1
+            main_attack_resist: 5
+        Main_attribute_Map:
+            main_attack:
+                from: 35
+                to: 95
+    AIGoalSelectors:
+        - clear
+        - meleeattack
+        - randomstroll
+        - gotospawn
+    AITargetSelectors:
+        - clear
+        - players
+        - attacker
+    Disguise: Zombified_Piglin setDynamicName true setConverting
+    Options:
+        FollowRange: 10
+        PreventSunburn: true
+        NoDamageTicks: 1
+        NoGravity: false
+        MovementSpeed: 0.37
+        KnockbackResistance: 0.65
+        Silent: true
+        AlwaysShowName: true
+        DigOutOfGround: true
+        PreventOtherDrops: true
+Ancient_Rockbull:
+    Type: Zombie
+    Display: '&cBò Đá Cổ Đại'
+    Health: 30000
+    Level: 20
+    Denizen:
+        on_spawn:
+            elite:
+                rate: 10
+            mutant:
+                rate: 10
+        on_death:
+            XP: 5000
+            drop_rate: 100
+            Elite_Drop:
+                Elite_Drop:
+                    29f7eef1-0612-4870-bda7-2420e5543c28: 2
+            Drop:
+                equipment:
+                    Ancient_Rock_<list[Sword|Bow|Staff].random>: 25
+    Flag:
+        Main_attribute_Map:
+            main_attack:
+                from: 200
+                to: 1100
+    AIGoalSelectors:
+        - clear
+        - meleeattack
+        - randomstroll
+    AITargetSelectors:
+        - clear
+        - players
+        - attacker
+    Disguise: Ravager setDynamicName
+    Options:
+        FollowRange: 10
+        PreventSunburn: true
+        NoDamageTicks: 1
+        NoGravity: false
+        MovementSpeed: 0.4
+        KnockbackResistance: 1
+        Silent: true
+        AlwaysShowName: true
+        DigOutOfGround: true
+        PreventOtherDrops: true
+Black_Knight:
+    Type: Zombie
+    Display: '&cHiệp Sĩ Đen'
+    Health: 80000
+    Level: 30
+    Denizen:
+        on_spawn:
+            elite:
+                rate: 0
+        on_death:
+            XP: 10000
+            drop_rate: 100
+            Drop:
+                equipment:
+                    Black_Knight_Sword: 25
+                    Black_Knight_Shield: 25
+    Equipment:
+        - netherite_chestplate CHEST
+        - netherite_Leggings LEGS
+        - netherite_Boots FEET
+        - Iron_Sword Hand
+        - Shield OffHand
+    Flag:
+        Attribute_Map:
+            cursed_attack_resist: 100
+            fire_attack_resist: 100
+            water_attack_resist: 100
+            ice_attack_resist: 100
+            thunder_attack_resist: 100
+        Main_Attribute_Map:
+            main_attack:
+                from: 270
+                to: 2600
+    AIGoalSelectors:
+        - clear
+        - meleeattack
+        - randomstroll
+    AITargetSelectors:
+        - clear
+        - players
+        - attacker
+    Disguise: Black_Knight
+    Options:
+        FollowRange: 10
+        PreventSunburn: true
+        NoDamageTicks: 1
+        MovementSpeed: 0.35
+        KnockbackResistance: 1
+        Silent: true
+        AlwaysShowName: false
+        DigOutOfGround: true
+        PreventOtherDrops: true
+Golem:
+    Type: Iron_Golem
+    Display: '&6Titan Golem'
+    Health: 150000
+    Level: 35
+    Denizen:
+        on_spawn:
+            elite:
+                rate: 0
+        on_death:
+            XP: 15000
+            drop_rate: 25
+            Drop:
+                equipment:
+                    Titan_<list[amulet|helmet|chestplate|pants|boots].random>: 15
+    Flag:
+        Attribute_Map:
+            main_attack_resist: 400
+        Main_Attribute_Map:
+            main_attack:
+                from: 666
+                to: 1777
+    AIGoalSelectors:
+        - clear
+        - meleeattack
+        - randomstroll
+    AITargetSelectors:
+        - clear
+        - attacker
+    Disguise: Iron_Golem setDynamicName true
+    Options:
+        FollowRange: 10
+        PreventSunburn: true
+        NoDamageTicks: 1
+        MovementSpeed: 0.35
+        KnockbackResistance: 1
+        Silent: true
+        AlwaysShowName: false
+        DigOutOfGround: true
+        PreventOtherDrops: true
+Devil_Ghost:
+    Type: Skeleton
+    Display: '&cHắc Ác Linh'
+    Health: 300000
+    Level: 40
+    ModelEngine: shadowguardian
+    Denizen:
+        on_spawn:
+            elite:
+                rate: 5
+            mutant:
+                rate: 10
+        on_death:
+            XP: 20000
+            drop_rate: 25
+    Flag:
+        Attribute_Map:
+            dodge: 100
+        Main_Attribute_Map:
+            main_attack:
+                from: 444
+                to: 1444
+    Options:
+        FollowRange: 10
+        PreventSunburn: true
+        NoDamageTicks: 0
+        MovementSpeed: 0.6
+        KnockbackResistance: 1
+        Silent: true
+        AlwaysShowName: false
+        DigOutOfGround: true
+        PreventOtherDrops: true
+    Faction: Hostile
+    AIGoalSelectors:
+        - clear
+        - meleeattack
+        - randomstroll
+    AITargetSelectors:
+        - clear
+        - players
+        - attacker
+    Skills:
+    - state{mid=shadowguardian;s=attack;li=1;lo=1} @self ~onAttack
+##Boss
+Necromancer:
+    Type: Skeleton
+    Display: '&cChiêu Hồn Tha Hoá'
+    Health: 999999
+    Level: 33
+    Denizen:
+        on_spawn:
+            elite:
+                rate: 99
+        on_death:
+            XP: 1
+            Drop:
+                equipment:
+                    Leather_<list[helmet|chestplate|pants|boots].random>: 10
+                    Necromancer_Staff: 30
+                    Necromancer_Helmet: 30
+                    Necromancer_Ring: 15
+                    Necromancer_Amulet: 15
+    Flag:
+        Attribute_Map:
+            main_attack: 1
+        Main_Attribute_Map:
+            main_attack:
+                from: 100
+                to: 200
+            Cursed_attack:
+                from: 350
+                to: 700
+    AIGoalSelectors:
+        - clear
+        - bowattack
+        - randomstroll
+    AITargetSelectors:
+        - clear
+        - players
+        - attacker
+    Options:
+        FollowRange: 10
+        PreventSunburn: true
+        NoDamageTicks: 1
+        MovementSpeed: 0.35
+        KnockbackResistance: 1
+        Silent: true
+        AlwaysShowName: false
+        DigOutOfGround: true
+        PreventOtherDrops: true
+    Disguise: Evoker setDynamicName true
+
+
+
+### Abandoned_Mine
+Hard_Miner:
+    Type: Zombie
+    Display: '&6Thợ Mỏ Khó Tính'
+    Health: 120
+    Level: 8
+    Denizen:
+        on_spawn:
+            elite:
+                rate: 5
+        on_death:
+            XP: 1
+            Drop:
+                equipment:
+                    Miner_Pants: 15
+                    Miner_Chestplate: 15
+                    Zombie_Miner_Plate: 5
+                crafting_material:
+                    broken_pickaxe: 25
+                    coal_ore: 65
+    Flag:
+        Attribute_Map:
+            main_attack: 1
+        Main_Attribute_Map:
+            main_attack:
+                from: 15
+                to: 35
+    AIGoalSelectors:
+        - clear
+        - meleeattack
+        - randomstroll
+    AITargetSelectors:
+        - clear
+        - attacker
+    Equipment:
+        - Iron_Pickaxe HAND
+    Options:
+        FollowRange: 20
+        PreventSunburn: true
+        NoDamageTicks: 1
+        MovementSpeed: 0.35
+        KnockbackResistance: 1
+        Silent: true
+        AlwaysShowName: false
+        DigOutOfGround: true
+        PreventOtherDrops: true
+    Disguise: Hard_Miner
+Cave_Spiders:
+    Type: Zombie
+    Display: '&cNhện Độc'
+    Health: 180
+    Level: 7
+    Denizen:
+        on_spawn:
+            elite:
+                rate: 5
+        on_death:
+            XP: 1
+            Drop:
+                crafting_material:
+                    Spider_silk_thread: 50
+                    Venomous_sac: 50
+                equipment:
+                    Silk_Tunic: 10
+    Flag:
+        Attribute_Map:
+            main_attack: 1
+        Main_Attribute_Map:
+            main_attack:
+                from: 15
+                to: 35
+    AIGoalSelectors:
+        - clear
+        - meleeattack
+        - randomstroll
+    AITargetSelectors:
+        - clear
+        - players
+        - attacker
+    Options:
+        FollowRange: 10
+        PreventSunburn: true
+        NoDamageTicks: 1
+        MovementSpeed: 0.35
+        KnockbackResistance: 1
+        Silent: true
+        AlwaysShowName: false
+        DigOutOfGround: true
+        PreventOtherDrops: true
+    Disguise: Cave_Spider setDynamicName true
+Zombie_Miner:
+    Type: Zombie
+    Display: '&cThợ Mỏ Thây Ma'
+    Health: 340
+    Level: 10
+    Denizen:
+        on_spawn:
+            elite:
+                rate: 5
+        on_death:
+            XP: 1
+            Drop:
+                crafting_material:
+                    Rusty_Ingot: 35
+                    Zombie_Miner_Flesh: 35
+    Flag:
+        Attribute_Map:
+            main_attack: 1
+        Main_Attribute_Map:
+            main_attack:
+                from: 10
+                to: 120
+
+    Options:
+        FollowRange: 10
+        PreventSunburn: true
+        NoDamageTicks: 1
+        MovementSpeed: 0.35
+        KnockbackResistance: 1
+        Silent: true
+        AlwaysShowName: false
+        DigOutOfGround: true
+        PreventOtherDrops: true
+    AIGoalSelectors:
+        - clear
+        - meleeattack
+        - randomstroll
+    AITargetSelectors:
+        - clear
+        - players
+        - attacker
+    Disguise: Husk setDynamicName true
+Ghost_Miner:
+    Type: Vex
+    Display: '&cMa Mỏ'
+    Health: 20
+    Level: 6
+    Denizen:
+        on_spawn:
+            elite:
+                rate: 5
+        on_death:
+            XP: 1
+            Drop:
+                crafting_material:
+                    Rusty_Ingot: 20
+                    Ghost_Miner_Dust: 5
+    Flag:
+        Attribute_Map:
+            main_attack: 1
+        Main_Attribute_Map:
+            main_attack:
+                from: 30
+                to: 160
+
+    Options:
+        FollowRange: 10
+        PreventSunburn: true
+        NoDamageTicks: 1
+        MovementSpeed: 0.35
+        KnockbackResistance: 1
+        Silent: true
+        AlwaysShowName: false
+        DigOutOfGround: true
+        PreventOtherDrops: true
+    AIGoalSelectors:
+        - clear
+        - meleeattack
+        - randomstroll
+    AITargetSelectors:
+        - clear
+        - players
+        - attacker
+    Disguise: Blaze setDynamicName true
+Mine_Golem:
+    Type: Iron_Golem
+    Display: '&6Người Đá Giúp Việc'
+    Health: 1450
+    Level: 13
+    Denizen:
+        on_spawn:
+            elite:
+                rate: 5
+        on_death:
+            XP: 1
+            Drop:
+                crafting_material:
+                    Rusty_Ingot: 50
+                    Earth_Essence: 1
+                    Rock_Shard: 1
+    Flag:
+        Attribute_Map:
+            main_attack: 1
+            main_attack_resist: 10
+        Main_Attribute_Map:
+            main_attack:
+                from: 325
+                to: 350
+
+    Options:
+        FollowRange: 10
+        PreventSunburn: true
+        NoDamageTicks: 1
+        MovementSpeed: 0.45
+        KnockbackResistance: 1
+        Silent: true
+        AlwaysShowName: false
+        DigOutOfGround: true
+        PreventOtherDrops: true
+    AIGoalSelectors:
+        - clear
+        - meleeattack
+        - randomstroll
+    AITargetSelectors:
+        - clear
+        - attacker
+    Disguise: Iron_Golem setDynamicName true
+Cave_Bat:
+    Type: phantom
+    Display: '&cDơi Độc'
+    Health: 90
+    Level: 10
+    Denizen:
+        on_spawn:
+            elite:
+                rate: 5
+        on_death:
+            XP: 1
+            Drop:
+                crafting_material:
+                    Mine_Bat_Wing: 35
+                    Mine_Bat_Tooth: 55
+    Flag:
+        Attribute_Map:
+            main_attack: 1
+        Main_Attribute_Map:
+            main_attack:
+                from: 27
+                to: 50
+            poison_attack:
+                from: 27
+                to: 50
+    Disguise: Bat setDynamicName true
+    Options:
+        FollowRange: 10
+        PreventSunburn: true
+        NoDamageTicks: 1
+        MovementSpeed: 0.35
+        KnockbackResistance: 1
+        Silent: true
+        AlwaysShowName: false
+        DigOutOfGround: true
+        PreventOtherDrops: true
+#Boss
+The_Mining_Automaton:
+    Type: Iron_Golem
+    Display: '&cNgười Máy Khai Thác'
+    Health: 1000
+    Level: 15
+    Denizen:
+        on_spawn:
+            elite:
+                rate: 0
+        on_death:
+            XP: 1
+            Drop:
+                crafting_material:
+                    Automaton_Core: 50
+                    Mining_Drill_Sharp: 50
+                equipment:
+                    Automaton_Chestplate: 100
+                    Automaton_Leggings: 100
+    Flag:
+        Attribute_Map:
+            main_attack: 1
+        Main_Attribute_Map:
+            main_attack:
+                from: 55
+                to: 95
+    AIGoalSelectors:
+        - clear
+        - meleeattack
+        - randomstroll
+    AITargetSelectors:
+        - clear
+        - players
+        - attacker
+    Disguise: Iron_Golem setDynamicName true
+    Options:
+        FollowRange: 10
+        PreventSunburn: true
+        NoDamageTicks: 1
+        MovementSpeed: 0.35
+        KnockbackResistance: 1
+        Silent: true
+        AlwaysShowName: false
+        DigOutOfGround: true
+        PreventOtherDrops: true
+
+###Ruin_Castle
+Ghost_Lamp:
+    Type: zombie
+    Display: '&cĐèn Ma'
+    Health: 2000
+    Level: 26
+    Denizen:
+        on_spawn:
+            elite:
+                rate: 5
+            mutant:
+                rate: 10
+        on_death:
+            XP: 80
+    Flag:
+        Attribute_Map:
+            main_attack: 1
+        Main_Attribute_Map:
+            main_attack:
+                from: 50
+                to: 150
+            water_attack:
+                from: 25
+                to: 50
+    AIGoalSelectors:
+        - clear
+        - meleeattack
+        - randomstroll
+    AITargetSelectors:
+        - clear
+        - players
+        - attacker
+    Disguise: Falling_Block setBurning setDynamicName true setBlock redstone_lamp
+    Options:
+        FollowRange: 10
+        PreventSunburn: true
+        NoDamageTicks: 1
+        MovementSpeed: 0.4
+        KnockbackResistance: 1
+        Silent: true
+        AlwaysShowName: false
+        DigOutOfGround: true
+        PreventOtherDrops: true
+Monkey:
+    Type: zombie
+    Display: '&cKhỉ Hoang'
+    Health: 150
+    Level: 24
+    Denizen:
+        on_spawn:
+            elite:
+                rate: 5
+            mutant:
+                rate: 10
+        on_death:
+            XP: 100
+    Flag:
+        Attribute_Map:
+            main_attack: 1
+            main_attack_resist: 30
+        Main_Attribute_Map:
+            main_attack:
+                from: 50
+                to: 200
+    AIGoalSelectors:
+        - clear
+        - meleeattack
+        - randomstroll
+    AITargetSelectors:
+        - clear
+        - players
+        - attacker
+    Disguise: Monkey
+    Options:
+        FollowRange: 10
+        PreventSunburn: true
+        NoDamageTicks: 1
+        MovementSpeed: 0.35
+        KnockbackResistance: 1
+        Silent: true
+        AlwaysShowName: false
+        DigOutOfGround: true
+        PreventOtherDrops: true
+Ruin_Castle_Guard:
+    Type: zombie
+    Display: '&cThủ Vệ Cổ Thành'
+    Health: 2500
+    Level: 30
+    Denizen:
+        on_spawn:
+            elite:
+                rate: 5
+            mutant:
+                rate: 10
+        on_death:
+            XP: 210
+    Flag:
+        Attribute_Map:
+            main_attack: 1
+        Main_Attribute_Map:
+            main_attack:
+                from: 150
+                to: 250
+    Equipment:
+        - iron_sword hand
+        - Shield OffHand
+        - Golden_Boots FEET
+    AIGoalSelectors:
+        - clear
+        - meleeattack
+        - randomstroll
+    AITargetSelectors:
+        - clear
+        - players
+        - attacker
+    Disguise: Ruin_Castle_Guard
+    Options:
+        FollowRange: 10
+        PreventSunburn: true
+        NoDamageTicks: 1
+        MovementSpeed: 0.35
+        KnockbackResistance: 1
+        Silent: true
+        AlwaysShowName: false
+        DigOutOfGround: true
+        PreventOtherDrops: true
+Ruin_Castle_Archer:
+    Type: Skeleton
+    Display: '&cCung Thủ Cổ Thành'
+    Health: 1600
+    Level: 29
+    Denizen:
+        on_spawn:
+            elite:
+                rate: 5
+            mutant:
+                rate: 10
+        on_death:
+            XP: 210
+    Flag:
+        Attribute_Map:
+            main_attack: 1
+        Main_Attribute_Map:
+            main_attack:
+                from: 50
+                to: 500
+    Equipment:
+        - bow hand
+        - Shield OffHand
+        - Golden_Boots FEET
+    AIGoalSelectors:
+        - clear
+        - bowattack
+        - randomstroll
+    AITargetSelectors:
+        - clear
+        - players
+        - attacker
+    Disguise: Ruin_Castle_Guard
+    Options:
+        FollowRange: 20
+        PreventSunburn: true
+        NoDamageTicks: 1
+        MovementSpeed: 0.35
+        KnockbackResistance: 1
+        Silent: true
+        AlwaysShowName: false
+        DigOutOfGround: true
+        PreventOtherDrops: true
+###Non-NPC
+Guard:
+    Type: zombie
+    Display: '&aThủ vệ'
+    Health: 5000
+    Level: 99
+    Denizen:
+        on_death:
+            XP: 0
+    Flag:
+        Attribute_Map:
+            main_attack: 1
+        Main_Attribute_Map:
+            main_attack:
+                from: 1
+                to: 2
+    Equipment:
+        - shield OFFHand
+        - iron_sword Hand
+        - iron_helmet HEAD
+        - iron_chestplate CHEST
+        - iron_leggings LEGS
+        - iron_boots FEET
+    Options:
+        FollowRange: 10
+        PreventSunburn: true
+        NoDamageTicks: 1
+        Despawn: persistent
+        MovementSpeed: 0.4
+        KnockbackResistance: 1
+        Silent: true
+        AlwaysShowName: false
+        DigOutOfGround: true
+        PreventOtherDrops: true
+    Faction: Human
+    AIGoalSelectors:
+        - clear
+        - meleeattack
+        - randomstroll
+        - gotospawnlocation
+    AITargetSelectors:
+        - clear
+        - OtherFactionMonsters
+        - attacker
+    Disguise: Iron_Golem setDynamicName true
+
+##############################################################    ##############################################################
+Assassin:
+    Type: zombie
+    Display: '&Siêu sát thủ'
+    Health: 5000
+    Level: 20
+    Denizen:
+        on_spawn:
+            elite:
+                rate: 15
+            mutant:
+                rate: 5
+        on_death:
+            XP: 41
+    Flag:
+        Attribute_Map:
+            main_attack: 100
+        Main_Attribute_Map:
+            thunder_attack:
+                from: 60
+                to: 600
+    Equipment:
+        - iron_helmet HEAD
+        - iron_chestplate CHEST
+        - iron_leggings LEGS
+        - iron_boots FEET
+    Options:
+        FollowRange: 30
+        PreventSunburn: true
+        NoDamageTicks: 1
+        Despawn: persistent
+        MovementSpeed: 0.6
+        KnockbackResistance: 1
+        Silent: true
+        AlwaysShowName: false
+        DigOutOfGround: true
+        PreventOtherDrops: true
+    #Faction: Human
+    AIGoalSelectors:
+        - clear
+        - meleeattack
+        - randomstroll
+        - gotospawnlocation
+   # AITargetSelectors:
+     #   - clear
+      #  - OtherFactionMonsters
+       # - attacker
+    Skills:
+        - teleport{spreadh=5;spreadv=0} @target
+        - potion{type=BLINDNESS;duration=50;level=4} @target
+        - potion{type=CONFUSION;duration=100;level=4} @target

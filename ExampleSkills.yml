@@ -1,0 +1,289 @@
+# For more information, check out the plugin manual or join us on Discord:
+# http://www.mythicmobs.net
+#  
+trainingdummywhack:
+    Skills:
+    - state{s=hurt} @self
+    - actionmessage{m="&fYou whacked the <mob.name> for <skill.var.damage-amount>"}
+add_elite:
+    Skills:
+    - setmodeltag{bone=elite;tag="<#01020F>Tinh Anh"} @self ~onSpawn
+add_tag:
+    Skills:
+    - setmodeltag{bone=name;tag="&f<caster.display>"} @self ~onSpawn
+    - setmodeltag{bone=hp_bar;tag=Lv<&sp><caster.level>} @self ~onSpawn
+################
+################
+set_model:
+    conditions:
+    - variableisset{var=caster.model} true
+    Skills:
+    - model{mid=<caster.var.model>;drive=true;ride=true} @self
+set_model_tag:
+    conditions:
+    - variableisset{var=caster.model} true
+    Skills:
+    - setmodeltag{m=<caster.var.model>;bone=name;tag=<caster.var.name>;v=true} @self
+    - setmodeltag{m=<caster.var.model>;bone=health;tag=<caster.var.health>;v=true} @self
+    - setmodeltag{m=<caster.var.model>;bone=level;tag=<caster.var.level>;v=true} @self
+    - setmodeltag{m=<caster.var.model>;bone=elite;tag=<caster.var.elite>;v=true} @self
+######
+dungeoncrystalACTIVATE:
+  Skills:  
+  - sound{s=littleroom_dungeon:littleroom.dungeon.spawn_set;v=1;sc=HOSTILE} @self
+  - setstance{stance=activated} @self
+  - setname{name=Spawn Activated} @self
+  - skill{s=dungeoncrystalDEACTIVATE} @EIW{targetsamefaction}
+  - effect:particleorbital{r=1;points=8;t=20;i=1;vy=10;particle=crit;d=true;dir=0,1,0;speed=0.2} @self
+  - effect:particles{particle=flash;amount=1;y=1} @self
+  - delay 1
+  - ChangePart{model=dungeon_spawn_crystal_off;part=crystal;newmodel=dungeon_spawn_crystal_on;newpart=crystal} @self
+  - skill{s=dungeoncrystalACTIVATEtitle} @trigger ~onInteract
+  
+dungeoncrystalACTIVATEtitle:
+  Skills:
+  - totemofundying{model=1} 
+  - command{c="revive_point <target.uuid>";asTarget=true;asOp=true}
+dungeoncrystalDEACTIVATE:
+  Skills:
+  - setname{name=Spawn Activated} @self
+  - ChangePart{model=dungeon_spawn_crystal_off;part=crystal;newmodel=dungeon_spawn_crystal_used;newpart=crystal}
+######
+#ELF_SKILL
+Q:
+ Cooldown: 10.0
+ Skills:
+ - missile{ot=Q-T;v=30;i=1;in=0.75;oh=Q-H} @target
+ - sound{s=entity.skeleton.shoot} @PIR{r=10}
+ - sound{s=entity.skeleton.shoot} @target
+ - delay 2
+ - missile{ot=Q-T;v=30;i=1;in=0.75;oh=Q-H} @target
+ - sound{s=entity.skeleton.shoot} @PIR{r=10}
+ - sound{s=entity.skeleton.shoot} @target
+ - delay 2
+ - missile{ot=Q-T;v=30;i=1;in=0.75;oh=Q-H} @target
+ - sound{s=entity.skeleton.shoot} @PIR{r=10}
+ - sound{s=entity.skeleton.shoot} @target
+ - delay 20
+ - missile{ot=Q-T;v=30;i=1;in=0.75;oh=Q-H} @target
+ - sound{s=entity.skeleton.shoot} @PIR{r=10}
+ - sound{s=entity.skeleton.shoot} @target
+ - delay 2
+ - missile{ot=Q-T;v=30;i=1;in=0.75;oh=Q-H} @target
+ - sound{s=entity.skeleton.shoot} @PIR{r=10}
+ - sound{s=entity.skeleton.shoot} @target
+ - delay 2
+ - missile{ot=Q-T;v=30;i=1;in=0.75;oh=Q-H} @target
+ - sound{s=entity.skeleton.shoot} @PIR{r=10}
+ - sound{s=entity.skeleton.shoot} @target
+ - delay 20
+ - missile{ot=Q-T;v=30;i=1;in=0.75;oh=Q-H} @target
+ - sound{s=entity.skeleton.shoot} @PIR{r=10}
+ - sound{s=entity.skeleton.shoot} @target
+ - delay 2
+ - missile{ot=Q-T;v=30;i=1;in=0.75;oh=Q-H} @target
+ - sound{s=entity.skeleton.shoot} @PIR{r=10}
+ - sound{s=entity.skeleton.shoot} @target
+ - delay 2
+ - missile{ot=Q-T;v=30;i=1;in=0.75;oh=Q-H} @target
+ - sound{s=entity.skeleton.shoot} @PIR{r=10}
+ - sound{s=entity.skeleton.shoot} @target
+ - delay 20
+ - missile{ot=Q-T;v=30;i=1;in=0.75;oh=Q-H} @target
+ - sound{s=entity.skeleton.shoot} @PIR{r=10}
+ - sound{s=entity.skeleton.shoot} @target
+ - delay 2
+ - missile{ot=Q-T;v=30;i=1;in=0.75;oh=Q-H} @target
+ - sound{s=entity.skeleton.shoot} @PIR{r=10}
+ - sound{s=entity.skeleton.shoot} @target
+ - delay 2
+ - missile{ot=Q-T;v=30;i=1;in=0.75;oh=Q-H} @target
+ - sound{s=entity.skeleton.shoot} @PIR{r=10}
+ - sound{s=entity.skeleton.shoot} @target
+ - delay 20
+ - missile{ot=Q-T;v=30;i=1;in=0.75;oh=Q-H} @target
+ - sound{s=entity.skeleton.shoot} @PIR{r=10}
+ - sound{s=entity.skeleton.shoot} @target
+ - delay 2
+ - missile{ot=Q-T;v=30;i=1;in=0.75;oh=Q-H} @target
+ - sound{s=entity.skeleton.shoot} @PIR{r=10}
+ - sound{s=entity.skeleton.shoot} @target
+ - delay 2
+ - missile{ot=Q-T;v=30;i=1;in=0.75;oh=Q-H} @target
+ - sound{s=entity.skeleton.shoot} @PIR{r=10}
+ - sound{s=entity.skeleton.shoot} @target
+ - delay 20
+Q-T:
+ Skills:
+ - effect:particles{p=reddust;c=#c6f5f6;a=10;hS=0.3;vS=0.3} @origin 
+ - effect:particles{p=reddust;c=#00c5ff;a=50} @origin
+Q-H:
+ Skills:
+ - potion{t=SLOW;d=60;level=2} 
+ - damage{a=3}
+W:
+ CoolDown: 7.0
+ Skills:
+ - projectile{ot=W-T;oh=W-H;v=20;syo=1;hs=true;i=1;hR=1;vR=1} @Ring{r=2;points=7}
+ - sound{s=entity.skeleton.shoot} @PIR{r=10}
+ - sound{s=entity.skeleton.shoot} @target
+ - delay 2
+ - sound{s=entity.shulker.shoot} @PIR{r=10}
+ - sound{s=entity.shulker.shoot} @target
+
+W-T:
+ Skills:
+ - effect:particles{p=reddust;c=#c6f5f6;a=10;hS=0.5;vS=0.5;hne=true} @origin
+ - effect:particles{p=reddust;c=#00c5ff;a=20} @origin
+W-H:
+ Skills:
+ - damage{a=15} 
+ - potion{t=SLOW;d=60;level=3} 
+E:
+ Cooldown: 10.0
+ Skills:
+ - projectile{ot=E-T;v=5;hnp=true;syo=1;hs=true;d=10;oe=E-E;mr=15;i=1;hR=1;vR=1} @targetlocation
+ - sound{s=block.snow.step} @PIR{r=10}
+ - sound{s=block.snow.step} @target
+E-T:
+ Skills:
+ - effect:particles{p=reddust;a=100;;c=#c6f5f6} @origin
+ - sound{s=block.snow.step} @origin
+Skills:
+ Conditions:
+ - incombat
+ Skills:
+ - randomskill{skills=Q,E,W,R} 
+E-E:
+ Skills:
+ - potion{t=GLOWING;level=10;d=200} @PlayersNearOrigin{r=5}
+ - effect:particles{p=snowballpoof;a=500;hS=7;vS=7;speed=0.1;d=100} @origin
+ #- effect:firework{t=4;d=0;f=true;tr=true;yoffset=0.5} @origin
+R:
+ Cooldown: 50.0
+ Skills:
+ - projectile{ot=R-T;v=7;syo=1.5;hs=true;d=10;oh=R-H;i=1;hR=3;vR=3} @target
+ - sound{s=entity.enderdragon.ambient} @PIR{r=10}
+ - sound{s=entity.enderdragon.ambient} @target
+R-T:
+ Skills:
+ - effect:particles{p=snowballpoof;a=100;hS=1.5;vS=1.5} @origin
+ - effect:particles{p=reddust;c=#00c5ff;a=50;vS=1.5;hS=1.5} @origin 
+ - effect:particles{p=enchantmenttable;a=50;vS=1.5;hS=1.5} @origin 
+ - sound{s=entity.enderdragon.shoot} @origin
+R-H:
+ Skills:
+ - effect:particles{p=snowballpoof;a=300;hS=5;vS=5} @origin 
+ - effect:particles{p=enchantmenttable;a=50;vS=5;hS=5} @origin
+ - effect:particles{p=dripwater;a=50;vS=5;hS=5} @origin
+ - damage{a=25} @PlayersNearOrigin{r=5}
+ - potion{t=SLOW;d=100;level=10} @PlayersNearOrigin{r=5}
+ - sound{s=entity.generic.big_fall;v=5.0;p=3.0} @PlayersNearOrigin{r=5}
+####
+kiemsiUltimate:
+  Cooldown: 5.0
+  Skills:
+  - effect:particlesphere{p=explode;amount=200;hSpread=1;vSpread=1;speed=0.1;yOffset=0} @Self
+  - teleport @target
+  - sound{s=block.anvil.place;volume=3.0;pitch=1} @EIR{r=10} 
+  - effect:explosion @Self
+  - effect:particlering{particle=sweepAttack;r=1;points=5;a=20} @target
+  - throw{velocity=2;velocityY=10} @Target
+  - damage{a=100} @Target
+  - delay 10
+  - teleport @target
+  - effect:particlering{particle=sweepAttack;r=1;points=5;a=20} @target
+  - sound{s=block.anvil.place;volume=3.0;pitch=1} @EIR{r=10} 
+  - effect:explosion @Self
+  - throw{velocity=2;velocityY=10} @Target
+  - damage{a=200} @Target
+  - delay 10
+  - teleport @target
+  - effect:particlering{particle=sweepAttack;r=1;points=5;a=20} @target
+  - sound{s=block.anvil.place;volume=3.0;pitch=1} @EIR{r=10} 
+  - effect:explosion @Self
+  - effect:particlering{particle=flame;r=2;points=5;a=10} @target
+  - throw{velocity=2;velocityY=10} @Target
+  - damage{a=300} @Target
+  - delay 10
+  - teleport @target
+  - sound{s=block.anvil.place;volume=3.0;pitch=1} @EIR{r=10} 
+  - effect:explosion @Self
+  - effect:particlering{particle=sweepAttack;r=1;points=5;a=20} @target
+  - throw{velocity=2;velocityY=10} @Target
+  - damage{a=400} @Target
+  - delay 10
+  - teleport @target
+  - sound{s=block.anvil.place;volume=3.0;pitch=1} @EIR{r=10} 
+  - effect:explosion @Self
+  - effect:particlering{particle=sweepAttack;r=1;points=5;a=20} @target
+  - throw{velocity=2;velocityY=10} @Target
+  - damage{a=600} @Target
+kiemsiQ:
+ CoolDown: 1.2
+ Skills:
+ - effect:particlesphere{p=explode;amount=200;hSpread=1;vSpread=1;speed=0.1;yOffset=0} @Self
+ - effect:particleline{particle=sweepAttack;amount=20;;hS=0.1;vS=0.1;fromOrigin=true;yoffset=0.5;d=60} @targetlocation
+ - sound{s=entity.shulker.hit;volume=3.0;pitch=1} @EIR{r=5}
+ - damage{a=300} @target
+kiemsiE:
+ CoolDown: 0.5
+ Skills:
+ - effect:particlesphere{p=explode;amount=200;hSpread=1;vSpread=1;speed=0.1;yOffset=0} @Self
+ - leap{velocity=600} @target
+ - sound{s=entity.shulker.shoot;volume=3.0;pitch=1} @EIR{r=5}
+ - damage{a=150} @target
+kiemsiEQ:
+ CoolDown: 1
+ Skills:
+ - effect:particlesphere{p=explode;amount=200;hSpread=1;vSpread=1;speed=0.1;yOffset=0} @Self
+ - leap{velocity=600} @target
+ - teleport @target
+ - throw{velocity=2;velocityY=6} @EIR{r=6}
+ - throw{velocity=2;velocityY=6} @target
+ - skill{s=kiemsiUltimate } @target 0.3
+ - sound{s=entity.shulker.shoot;volume=5.0;pitch=1} @EIR{r=6}
+ - effect:particletornado{p=sweepAttack;cp=largeexplode;mr=1;h=3;i=1;d=30;rs=1;sh=1;cs=0;ca=0;chs=0.1;cvs=0.1;cps=1;cyo=2} @selflocation
+ - delay 30
+NoiTai:
+ CoolDown: 2.0
+ Skills:
+ - potion{t=DAMAGE_RESISTANCE;level=3;d=100} @self
+ - effect:particles{p=cloud;a=200;hS=1;vS=1;speed=0.01;d=100} @self
+ - sound{s=entity.shulker.close;volume=5.0} @EIR{r=5}
+ - effect:particles{p=cloud;a=200;hS=1;vS=1;speed=0.01;d=100} @self
+ - effect:particles{p=cloud;a=200;hS=1;vS=1;speed=0.01;d=100} @self
+ - effect:particles{p=cloud;a=200;hS=1;vS=1;speed=0.01;d=100} @self
+ - effect:particles{p=cloud;a=200;hS=1;vS=1;speed=0.01;d=100} @self
+ - effect:particles{p=cloud;a=200;hS=1;vS=1;speed=0.01;d=100} @self
+ - effect:particles{p=cloud;a=200;hS=1;vS=1;speed=0.01;d=100} @self
+ - effect:particles{p=cloud;a=200;hS=1;vS=1;speed=0.01;d=100} @self
+ - effect:particles{p=cloud;a=200;hS=1;vS=1;speed=0.01;d=100} @self
+ - effect:particles{p=cloud;a=200;hS=1;vS=1;speed=0.01;d=100} @self
+ - effect:particles{p=cloud;a=200;hS=1;vS=1;speed=0.01;d=100} @self
+ - delay 100
+kiemsiSkills:
+  Conditions:
+  - incombat
+  Cooldown: 0
+  Skills:
+  - randomskill{skills=kiemsiQ3,kiemsiE,kiemsiQ,kiemsiEQ,NoiTai} 
+kiemsiQ3:
+ CoolDown: 3
+ Skills:
+ - effect:particlesphere{p=explode;amount=200;hSpread=1;vSpread=1;speed=0.1;yOffset=0} @Self
+ - throw{velocity=2;velocityY=6} @target
+ - skill{s=kiemsiUltimate } @target 0.3
+ - sound{s=entity.creeper.primed;volume=3.0;pitch=1} @EIR{r=5}
+ - skill{s=Tornado}
+Tornado:
+ Skills:
+ - projectile{ot=Tornado-tick;syo=0.5;hS=1;vS=1;hnp=true;i=10;mr=10;hs=true} @target
+Tornado-tick:
+ Skills:
+ - skill{s=Tornado-fly} @origin
+ - effect:particletornado{p=sweepAttack;cp=largeexplode;mr=1;h=3;i=1;d=40;rs=1;sh=1;cs=0;ca=0;chs=0.1;cvs=0.1;cps=1;cyo=2} @origin
+Tornado-fly:
+ Skills:
+ - throw{velocity=2;velocityY=6} @EIR{r=4}
+ - skill{s=kiemsiUltimate } @target 0.3
